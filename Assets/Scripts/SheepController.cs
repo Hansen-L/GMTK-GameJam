@@ -34,13 +34,11 @@ public class SheepController : MonoBehaviour
             {
                 sheepRb.velocity = new Vector2(-sheepRb.velocity.x, sheepRb.velocity.y);
                 movementDir = new Vector2(-movementDir.x, movementDir.y);
-                Debug.Log("Side");
             }
             else // if hitting a top/bot wall
             {
                 sheepRb.velocity = new Vector2(sheepRb.velocity.x, -sheepRb.velocity.y);
                 movementDir = new Vector2(movementDir.x, -movementDir.y);
-                Debug.Log("Top");
             }
         }
 	}
@@ -64,7 +62,6 @@ public class SheepController : MonoBehaviour
         {
             if (timeLeft <= 0) // Switch direction
             {
-                Debug.Log(movementDir);
                 //sheepRb.velocity = new Vector2(0, 0); // TODO: Maybe implement slower deceleration later
                 prevDir = movementDir;
                 movementDir = GenerateMovementDir();

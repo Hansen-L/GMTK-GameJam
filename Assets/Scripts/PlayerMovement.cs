@@ -79,8 +79,6 @@ public class PlayerMovement : MonoBehaviour
 			Vector2 total_velocity = new Vector2(h_velocity, v_velocity);
 
 		   	body.velocity = Vector2.ClampMagnitude(total_velocity, max_speed);
-
-		   	Debug.Log(body.velocity);
 		}
 	}
 
