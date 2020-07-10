@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 	bool dashing;
 	bool stunned;
 
+	Vector3 characterScale;
+
 	public float acceleration;
 	public float max_speed;
 	public float friction;
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 	void Start ()
 	{
 	   	body = GetComponent<Rigidbody2D>();
+	   	characterScale = transform.localScale;
 	}
 
 	void Update()
@@ -37,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
 	   	// Gives a value between -1 and 1
 	   	horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
 	   	vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+
+		if (horizontal != 0){
+			transform.localScale = new Vector3(characterScale.x*-horizontal, characterScale.y, characterScale.z);
+		}
 
 	   	if (Input.GetKeyDown("space")){
 	   		Dash_start();
@@ -86,8 +93,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		dash_timer = 0;
 		dashing = true;
-		Vector2 mousePos = Input.mousePosition;//gets mouse postion
-     	mousePos = camera.ScreenToWorldPoint (mousePos);
 		dash_direction =  body.velocity;
 		dash_direction.Normalize();
 	}
@@ -98,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
 		body.velocity = new Vector2(0,0);
 		stun_time = dash_end_stun;
 		Stun_start();
+		StartCoroutine(screenShake.Shake(0.1f, 0.1f));
 	}
 
 	void Stun_start()
