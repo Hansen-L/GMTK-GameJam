@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 	public float dash_time;
 	public float dash_end_stun;
 	public Camera camera;
+	public ScreenShake screenShake;
 
 
 	void Start ()
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 	   	if (Input.GetKeyDown("space")){
 	   		Dash_start();
 	   	}
+		StartCoroutine(screenShake.Shake(0.3f, 0.01f));
 	}
 
 
