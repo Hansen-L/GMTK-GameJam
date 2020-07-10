@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 		dashing = true;
 		Vector2 mousePos = Input.mousePosition;//gets mouse postion
      	mousePos = camera.ScreenToWorldPoint (mousePos);
-		dash_direction =  new Vector2(mousePos.x - body.position.x, mousePos.y - body.position.y);
+		dash_direction =  body.velocity;
 		dash_direction.Normalize();
 	}
 
