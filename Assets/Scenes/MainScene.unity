@@ -413,8 +413,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a295d6550f439be44aa3e5d85a127904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovespeed: 5
-  panicMovespeed: 7
+  baseWanderingTime: 2
+  baseMaxspeed: 5
+  panicWanderingTime: 1.5
+  panicMaxspeed: 7
+  baseAcceleration: 2
+  panicAcceleration: 16
+  pauseMovementFrames: 30
+  isPanicked: 0
 --- !u!1001 &1250318174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -821,6 +827,10 @@ MonoBehaviour:
   acceleration: 1
   max_speed: 10
   friction: 0.6
+  dash_speed: 40
+  dash_time: 0.15
+  dash_end_stun: 0.1
+  camera: {fileID: 424173953}
 --- !u!1001 &3820355310161840326
 PrefabInstance:
   m_ObjectHideFlags: 0
