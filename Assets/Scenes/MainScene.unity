@@ -827,6 +827,10 @@ MonoBehaviour:
   acceleration: 1
   max_speed: 10
   friction: 0.6
+  dash_speed: 40
+  dash_time: 0.15
+  dash_end_stun: 0.1
+  camera: {fileID: 424173953}
 --- !u!1001 &3820355310161840326
 PrefabInstance:
   m_ObjectHideFlags: 0
