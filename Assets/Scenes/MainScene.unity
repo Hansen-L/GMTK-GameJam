@@ -413,8 +413,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a295d6550f439be44aa3e5d85a127904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovespeed: 5
-  panicMovespeed: 7
+  baseWanderingTime: 4
+  baseMaxspeed: 5
+  panicWanderingTime: 1.5
+  panicMaxspeed: 7
+  baseAcceleration: 2
+  panicAcceleration: 16
+  pauseMovementFrames: 30
+  isPanicked: 0
 --- !u!1001 &1250318174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -635,7 +641,7 @@ GameObject:
   - component: {fileID: 2067607130}
   m_Layer: 0
   m_Name: Stage Boundary
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -656,11 +662,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -13, y: -8}
-  - {x: -13, y: 8}
-  - {x: 13, y: 8}
-  - {x: 13, y: -8}
-  - {x: -13, y: -8}
+  - {x: -12, y: -7}
+  - {x: -12, y: 7}
+  - {x: 12, y: 7}
+  - {x: 12, y: -7}
+  - {x: -12, y: -7}
 --- !u!4 &2067607131
 Transform:
   m_ObjectHideFlags: 0
@@ -769,7 +775,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -805,7 +811,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2084045644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,10 +834,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3820355310272679370, guid: 1183e211ce6c55747b764c762a8ed481,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3820355310272679371, guid: 1183e211ce6c55747b764c762a8ed481,
         type: 3}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820355310272679371, guid: 1183e211ce6c55747b764c762a8ed481,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3820355310272679373, guid: 1183e211ce6c55747b764c762a8ed481,
         type: 3}
