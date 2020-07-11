@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 	public float dash_end_stun;
 	public Camera camera;
 	public ScreenShake screenShake;
+	public GameObject dashJumpCollider;
 
 	private float boundary_x;
 	private float boundary_y;
@@ -126,6 +127,10 @@ public class PlayerMovement : MonoBehaviour
 		stun_time = dash_end_stun;
 		Stun_start();
 		StartCoroutine(screenShake.Shake(0.1f, 0.1f));
+
+		// Spawn collider to push back sheep
+		GameObject dashJumpColliderInstance = Instantiate(dashJumpCollider, this.transform.position, Quaternion.identity);
+		Destroy(dashJumpColliderInstance, 0.5f);
 	}
 
 	void Stun_start()

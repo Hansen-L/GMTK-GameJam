@@ -150,7 +150,7 @@ MonoBehaviour:
   panicMaxspeed: 7
   baseAcceleration: 2
   panicAcceleration: 16
-  isPanicked: 0
+  isPanicked: 1
   pauseMovementFrames: 30
   animator: {fileID: 0}
 --- !u!95 &-699948635911157126
