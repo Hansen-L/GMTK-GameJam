@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 	public ScreenShake screenShake;
 	public GameObject dashJumpCollider;
 	public GameObject barkCollider;
+	public GameObject dashEndEffect;
 
 	private float boundary_x;
 	private float boundary_y;
@@ -160,6 +161,10 @@ public class PlayerMovement : MonoBehaviour
 		// Spawn collider to push back sheep
 		GameObject dashJumpColliderInstance = Instantiate(dashJumpCollider, this.transform.position, Quaternion.identity);
 		Destroy(dashJumpColliderInstance, 0.1f);
+
+		Vector2 effectPosition = new Vector2(this.transform.position.x, this.transform.position.y + 1.3f);
+		GameObject dashEndEffectInstance = Instantiate(dashEndEffect, effectPosition, Quaternion.identity);
+		Destroy(dashEndEffectInstance, 2f);
 	}
 
 	void Bark(){

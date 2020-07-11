@@ -155,6 +155,8 @@ MonoBehaviour:
     type: 3}
   barkCollider: {fileID: 2402875183927296318, guid: eb63dcc50ff6e3f428887720aaa60d4e,
     type: 3}
+  dashEndEffect: {fileID: 6594737175139339036, guid: 878d6471e503a6643a2eef481daa0aee,
+    type: 3}
 --- !u!95 &2084045640
 Animator:
   serializedVersion: 3
