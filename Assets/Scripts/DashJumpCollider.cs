@@ -2,12 +2,26 @@
 
 public class DashJumpCollider : MonoBehaviour 
 {
-	private void OnCollisionEnter2D(Collision2D collision) // Should this live here or on the sheep/wolf?
+
+	Rigidbody2D body;
+	Vector2 location;
+
+	void Start ()
+	{
+	   	body = GetComponent<Rigidbody2D>();
+	   	location = body.transform.position;
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision) // Should this live here or on the sheep/wolf?
 	{
 		if (collision.gameObject.CompareTag("Sheep"))
 		{
 			SheepController sheep = collision.gameObject.GetComponent<SheepController>();
-			if (sheep) { sheep.UnpanicSheep(); } // unpanic sheep from dashjump
+			if (sheep) { 
+				sheep.UnpanicSheep(); 
+				sheep.ChangeVelocity(location); 
+
+				} // unpanic sheep from dashjump
 		}
 		else if (collision.gameObject.CompareTag("Wolf"))
 		{

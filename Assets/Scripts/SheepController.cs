@@ -11,6 +11,10 @@ public class SheepController : MonoBehaviour
     public float panicAcceleration = 16f;
     public bool isPanicked = false;
     public int pauseMovementFrames = 30; // how long to stop the sheep before changing direction
+    public float pushVelocity;
+    public float StunTime;
+    public float friction;
+    private bool isStunned;
 
     private float timeLeft = 2f; // tracking time before direction switches
     private Vector2 movementDir;
@@ -79,6 +83,17 @@ public class SheepController : MonoBehaviour
 	void Update()
     {
         timeLeft -= Time.deltaTime;
+
+        if (isStunned){
+            sheepRb.velocity = new Vector2(sheepRb.velocity.x*friction,sheepRb.velocity.y*friction);
+            timeLeft += StunTime;
+            if (timeLeft <=0){
+                isStunned = false;
+            }
+        }
+
+
+
         if (!isPanicked) // Chill sheep
         {
             if (timeLeft <= 0) // Switch direction
@@ -157,6 +172,23 @@ public class SheepController : MonoBehaviour
 
     public void HaveBabies() // spawn sheep from each other?
     {
+    }
+
+
+    public void Stunned()
+    {
+        isStunned = true;
+    }
+
+    public void ChangeVelocity(Vector2 direction)
+    {
+
+        Vector2 dir = new Vector2(this.transform.position.x,this.transform.position.y)  - direction;
+        dir.Normalize();
+
+        sheepRb.velocity = dir * pushVelocity;
+
+        Stunned();
     }
 
     public void GenerateMovementDir(Vector2 setMovementDir = default(Vector2))
