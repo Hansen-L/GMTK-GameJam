@@ -39,11 +39,11 @@ public class ScoreHUD : MonoBehaviour
     private IEnumerator IncreaseScoreAnim() // Animate the damage update
     {
         float duration = 0.2f; // Animation total duration
-        float step = 0.02f; // Step between animation frames
+        float step = 0.04f; // Step between animation frames
 
         for (int i = 0; i <= duration / step; i++)
         {
-            scoreText.fontSize = originalSize + i / 2;
+            scoreText.fontSize = (int) (originalSize + i * 2);
             //scoreText.color = new Color(0.95f + Random.Range(-0.5f, 0.05f), 0f, 0f);
             yield return new WaitForSeconds(step);
         }

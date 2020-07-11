@@ -55,6 +55,12 @@ public class SheepController : MonoBehaviour
             if (otherSheep) { otherSheep.GenerateMovementDir(); } // change direction of other sheep
         }
 
+        else if (collision.gameObject.CompareTag("Wolf")) // this sheep runs into a wolf
+        {
+            sheepRb.velocity = new Vector2(0f, 0f);
+            GenerateMovementDir();
+        }
+
         else if (collision.gameObject.CompareTag("Boundary")) //switch direction if we hit edge of map
         {
             if (Mathf.Abs(collision.relativeVelocity.x) > Mathf.Abs(collision.relativeVelocity.y)) // if hitting a side wall
@@ -158,7 +164,6 @@ public class SheepController : MonoBehaviour
         if (setMovementDir != default(Vector2)) // If we pass in a custom direction to set movement
         {
             movementDir = setMovementDir.normalized;
-            Debug.Log("TEST");
         }
         else // ugly code for keeping sheep away from edges of map
         {

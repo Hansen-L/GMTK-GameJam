@@ -7,10 +7,10 @@ public class SheepPercentHUD : MonoBehaviour
 {
     public TextMeshProUGUI percentPanickedText; // what percent of sheep are panicked
     public SheepSpawner sheepSpawner;
+    public int percentPanicked;
 
     private float originalSize;
     private Color originalColor;
-    private int percentPanicked;
     private int prevPercentPanicked = 0;
 
     void Start() 

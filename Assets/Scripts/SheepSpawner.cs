@@ -21,7 +21,7 @@ public class SheepSpawner : MonoBehaviour
 
 	private void Start()
 	{
-		StartCoroutine(SpawnSheep());
+		StartCoroutine(SpawnSheepCoroutine());
 	}
 
 	private void Update()
@@ -37,15 +37,20 @@ public class SheepSpawner : MonoBehaviour
 		}
 	}
 
-	public IEnumerator SpawnSheep()
+	public IEnumerator SpawnSheepCoroutine()
 	{
 		while (true)
 		{
-			Vector2 spawnPosition = new Vector2(Random.Range(-spawnRange_x, spawnRange_x), Random.Range(-spawnRange_y, spawnRange_y)); // Choose random position in our designated box
-			GameObject newSheep = Instantiate(sheepPrefab, spawnPosition, Quaternion.identity);
-			sheepList.Add(newSheep);
-
 			yield return new WaitForSeconds(spawnPeriod);
+
+			SpawnASheep();
 		}
+	}
+
+	public void SpawnASheep() // Can be called from other functions
+	{
+		Vector2 spawnPosition = new Vector2(Random.Range(-spawnRange_x, spawnRange_x), Random.Range(-spawnRange_y, spawnRange_y)); // Choose random position in our designated box
+		GameObject newSheep = Instantiate(sheepPrefab, spawnPosition, Quaternion.identity);
+		sheepList.Add(newSheep);
 	}
 }

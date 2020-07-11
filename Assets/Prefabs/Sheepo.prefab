@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseWanderingTime: 4
-  baseMaxspeed: 5
+  baseMaxspeed: 1.5
   panicWanderingTime: 1.5
   panicMaxspeed: 7
   baseAcceleration: 2
