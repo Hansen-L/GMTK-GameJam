@@ -24,7 +24,7 @@ public class SheepController : MonoBehaviour
     private float innerBoundary_x; // 8 // when do the sheep start turning towards the center?
     private float innerBoundary_y; // 4 
     private int baseLayer;
-    public GameObject audioManagerObj;
+    private GameObject audioManagerObj;
     private AudioManager audioManager;
 
     public Animator animator;
@@ -40,6 +40,7 @@ public class SheepController : MonoBehaviour
         GameObject boundaryObj = GameObject.Find("Boundaries");
         BoundaryNumbers boundary = boundaryObj.GetComponent<BoundaryNumbers>();
 
+        audioManagerObj = GameObject.Find("Audio Manager");
         audioManager = audioManagerObj.GetComponent<AudioManager>();
 
         innerBoundary_x = boundary.playerBoundary_x - 6;
