@@ -56,15 +56,18 @@ public class PlayerMovement : MonoBehaviour
 
 	   	if (Input.GetKeyDown("space")){
 	   		Dash_start();
-			StartCoroutine(screenShake.Shake(0.3f, 0.01f));
 	   	}
+		Vector2 position;
+
+		position.x = Mathf.Clamp(this.transform.position.x, -boundary_x, boundary_x);
+		position.y = Mathf.Clamp(this.transform.position.y, -boundary_y, boundary_y);
+		this.transform.position = position;
 	}
 
 
 
 	void FixedUpdate()
 	{
-
 		if (stunned == true){
 			stun_timer += Time.fixedDeltaTime;
 			body.velocity = new Vector2(0,0);
@@ -102,12 +105,6 @@ public class PlayerMovement : MonoBehaviour
 
 		   	body.velocity = Vector2.ClampMagnitude(total_velocity, max_speed);
 		}
-
-		Vector2 position;
-
-		position.x = Mathf.Clamp(this.transform.position.x, -boundary_x, boundary_x);
-		position.y = Mathf.Clamp(this.transform.position.y, -boundary_y, boundary_y);
-		this.transform.position = position;
 
 	}
 

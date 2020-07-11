@@ -152,7 +152,7 @@ MonoBehaviour:
   panicAcceleration: 16
   isPanicked: 0
   pauseMovementFrames: 30
-  animator: {fileID: 0}
+  animator: {fileID: -699948635911157126}
 --- !u!95 &-699948635911157126
 Animator:
   serializedVersion: 3

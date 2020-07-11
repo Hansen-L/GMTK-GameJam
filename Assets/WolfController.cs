@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WoldController : MonoBehaviour 
+public class WolfController : MonoBehaviour 
 {
 	
 	Vector2 direction;
@@ -18,8 +18,11 @@ public class WoldController : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		direction = this.transform.position - GetClosestSheep().transform.position;
-		direction.Normalize();
+		Vector2 newdirection = GetClosestSheep().transform.position - this.transform.position;
+		newdirection.Normalize();
+
+		direction.x = Mathf.Lerp(direction.x, newdirection.x, 2*Time.fixedDeltaTime);
+		direction.y = Mathf.Lerp(direction.y, newdirection.y, 2*Time.fixedDeltaTime);
 
 		wolfRb.velocity = direction*velocity;
 	}
@@ -29,7 +32,7 @@ public class WoldController : MonoBehaviour
 
 	}
 
-	public GameObject GetClosestSheep()
+	GameObject GetClosestSheep()
 	{
 		GameObject[] sheeps;
 		sheeps = GameObject.FindGameObjectsWithTag("Sheep");
