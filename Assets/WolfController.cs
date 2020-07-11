@@ -33,6 +33,19 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
+	private void Update()
+	{
+		// Animate wolf
+		if (wolfRb.velocity.x > 0) // moving right
+		{
+			wolfRenderer.flipX = true;
+		}
+		else if (wolfRb.velocity.x <= 0) // moving left
+		{
+			wolfRenderer.flipX = false;
+		}
+	}
+
 	void FixedUpdate()
 	{
 		GameObject closestSheep = GetClosestSheep();
