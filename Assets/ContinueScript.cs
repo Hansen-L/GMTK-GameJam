@@ -13,6 +13,8 @@ public class ContinueScript : MonoBehaviour
         animalSpawner.GetComponent<SheepSpawner>().SpawnASheep();
         animalSpawner.GetComponent<SheepSpawner>().SpawnASheep();
         animalSpawner.GetComponent<SheepSpawner>().SpawnASheep();
+        animalSpawner.GetComponent<SheepSpawner>().MakeSheepCalm();
+        animalSpawner.GetComponent<WolfSpawner>().KillAllWolves();
         Destroy(this.transform.parent.gameObject);
     }
 }

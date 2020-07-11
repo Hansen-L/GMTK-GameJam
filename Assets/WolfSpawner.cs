@@ -55,4 +55,11 @@ public class WolfSpawner : MonoBehaviour
 
 		}
 	}
+
+	public void KillAllWolves() // Can be called from other functions
+	{
+		foreach (GameObject wolf in wolfList){
+			wolf.GetComponent<WolfController>().Die();
+		}
+	}
 }

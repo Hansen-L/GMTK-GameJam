@@ -4,6 +4,8 @@ using System.Collections;
 
 public class ScoreHUD : MonoBehaviour
 {
+
+    private GameObject gameManager;
     public int scoreUpdatePeriod = 5; // update every x seconds
     public int scoreMult = 100; // score is updated by numUnpanicked * scoreMult
     public TextMeshProUGUI scoreText; // what percent of sheep are panicked
@@ -21,7 +23,15 @@ public class ScoreHUD : MonoBehaviour
         originalSize = scoreText.fontSize;
         originalColor = scoreText.color;
 
-        StartCoroutine(CalculateScore());
+        gameManager = GameObject.Find("Game Manager");
+
+        //StartCoroutine(CalculateScore());
+    }
+
+
+    void Update(){
+        score = (int) gameManager.GetComponent<GameManager>().timer;
+        scoreText.text = score.ToString();
     }
 
     private IEnumerator CalculateScore()
