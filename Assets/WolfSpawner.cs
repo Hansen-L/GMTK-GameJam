@@ -28,6 +28,13 @@ public class WolfSpawner : MonoBehaviour
 		StartCoroutine(SpawnWolves());
 	}
 
+	void Update()
+	{
+		GameObject gameManager;
+		gameManager = GameObject.Find("Game Manager");
+		spawnPeriod = gameManager.GetComponent<GameManager>().timer/9;
+	}
+
 	public IEnumerator SpawnWolves() // Spawn wolf outside fence, wolf can walk through fence
 	{
 		while (true)

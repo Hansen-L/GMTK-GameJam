@@ -14,7 +14,7 @@ public class ContinueScript : MonoBehaviour
 	public void Continue()
     {
         Time.timeScale = 1;
-        animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(5);
+        animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(10);
         animalSpawner.GetComponent<SheepSpawner>().MakeSheepCalm();
         animalSpawner.GetComponent<WolfSpawner>().KillAllWolves();
         Destroy(this.transform.parent.gameObject);
