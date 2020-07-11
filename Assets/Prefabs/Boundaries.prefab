@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 991448888376614489}
   - component: {fileID: 991448888376614486}
   m_Layer: 0
-  m_Name: Boundaries 1
+  m_Name: Boundaries
   m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,11 +63,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 991448888376614490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 032d105ee75e3f9439beee2ef7735451, type: 3}
+  m_Script: {fileID: 11500000, guid: 4637cf782ba9c4040a28150eef709659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraBoundary_x: 4.81
-  cameraBoundary_y: 3.86
+  cameraBoundary_y: 4
   playerBoundary_x: 14.83
   playerBoundary_y: 9.04
 --- !u!114 &991448888376614486
@@ -79,6 +79,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 991448888376614490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 303159ff071ee7f40b2d2631d164ac4a, type: 3}
+  m_Script: {fileID: 11500000, guid: 461a4d93a2fab1d4889d4e2657a6091c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

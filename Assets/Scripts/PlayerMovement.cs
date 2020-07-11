@@ -56,8 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
 	   	if (Input.GetKeyDown("space")){
 	   		Dash_start();
+			StartCoroutine(screenShake.Shake(0.3f, 0.01f));
 	   	}
-		StartCoroutine(screenShake.Shake(0.3f, 0.01f));
 	}
 
 

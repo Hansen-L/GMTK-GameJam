@@ -40,11 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7861852725487263289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35229d4d66b4b1d4d96357947a7b2d17, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d35d4ec52409f24c8074da4696dacfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRange_x: 8
   spawnRange_y: 4
-  spawnPeriod: 1
+  spawnPeriod: 4.3
   sheepPrefab: {fileID: 3179488869572368684, guid: 1183e211ce6c55747b764c762a8ed481,
     type: 3}

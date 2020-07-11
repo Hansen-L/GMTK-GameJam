@@ -95,6 +95,11 @@ public class SheepController : MonoBehaviour
         }
     }
 
+    void AnimateSheep()
+    {
+        // Set animations based on movement vector, idle, color
+    }
+
 
     private int innerBoundary_x = 8;
     private int innerBoundary_y = 4;

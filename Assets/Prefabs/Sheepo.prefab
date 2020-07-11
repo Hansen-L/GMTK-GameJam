@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3179488869572368683}
   - component: {fileID: 3179488869572368682}
   - component: {fileID: 3179488869572368685}
+  - component: {fileID: -699948635911157126}
   m_Layer: 0
   m_Name: Sheepo
   m_TagString: Untagged
@@ -151,3 +152,22 @@ MonoBehaviour:
   panicAcceleration: 16
   pauseMovementFrames: 30
   isPanicked: 0
+--- !u!95 &-699948635911157126
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179488869572368684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a0a68d8257bb724598e975d1e983a7b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
