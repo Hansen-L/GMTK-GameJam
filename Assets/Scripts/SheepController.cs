@@ -8,7 +8,7 @@ public class SheepController : MonoBehaviour
     public float panicMaxspeed = 7f;
     public float baseAcceleration = 2f;
     public float panicAcceleration = 16f;
-
+    public bool isPanicked = false;
     public int pauseMovementFrames = 30; // how long to stop the sheep before changing direction
 
     private float timeLeft = 2f; // tracking time before direction switches
@@ -18,12 +18,24 @@ public class SheepController : MonoBehaviour
     private SpriteRenderer sheepRenderer;
     private int pauseFrameCount; // Used to pause fixedupdate
 
-    public bool isPanicked = false;
+    private float innerBoundary_x; // 8 // when do the sheep start turning towards the center?
+    private float innerBoundary_y; // 4 
+
+    public Animator animator;
+
 
     void Start() 
     {
         sheepRb = this.GetComponent<Rigidbody2D>();
         sheepRenderer = this.GetComponent<SpriteRenderer>();
+
+        GameObject boundaryObj = GameObject.Find("Boundaries");
+        BoundaryNumbers boundary = boundaryObj.GetComponent<BoundaryNumbers>();
+
+        innerBoundary_x = boundary.playerBoundary_x - 6;
+        innerBoundary_y = boundary.playerBoundary_y - 5;
+
+        animator = this.GetComponent<Animator>();
     }
 
 	private void OnCollisionEnter2D(Collision2D collision) // collision refers to other object
@@ -68,6 +80,8 @@ public class SheepController : MonoBehaviour
                 timeLeft += panicWanderingTime;
             }
         }
+
+        AnimateSheep();
     }
 
     void FixedUpdate()
@@ -98,13 +112,33 @@ public class SheepController : MonoBehaviour
     void AnimateSheep()
     {
         // Set animations based on movement vector, idle, color
+        if (isPanicked)
+        {
+            animator.SetBool("isPanicked", true);
+        }
+        else
+        {
+            animator.SetBool("isPanicked", false);
+        }
+
+        // Animate based on movement
     }
 
+    public void UnpanicSheep()
+    {
+        isPanicked = false;
+    }
 
-    private int innerBoundary_x = 8;
-    private int innerBoundary_y = 4;
+    public void PanicSheep()
+    {
+        isPanicked = true;
+    }
 
-    Vector2 GenerateMovementDir()
+    public void HaveBabies() // spawn sheep from each other?
+    {
+    }
+
+    private Vector2 GenerateMovementDir()
     {
         float x = this.transform.position.x;
         float y = this.transform.position.y;
@@ -145,13 +179,5 @@ public class SheepController : MonoBehaviour
 
 
         return (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f))).normalized;
-    }
-
-    void Panic()
-    {
-    }
-
-    void HaveBabies()
-    {
     }
 }
