@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRange_x: 8
   spawnRange_y: 4
-  spawnPeriod: 1
+  spawnPeriod: 5
   sheepPrefab: {fileID: 3179488869572368684, guid: 1183e211ce6c55747b764c762a8ed481,
     type: 3}
   sheepList: []

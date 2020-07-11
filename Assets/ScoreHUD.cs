@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using System.Collections;
 
@@ -29,11 +28,11 @@ public class ScoreHUD : MonoBehaviour
     {
         while (true)
         {
-            score += sheepSpawner.calmSheepList.Count * scoreMult; // increment score
+            yield return new WaitForSeconds(scoreUpdatePeriod);
+
+            score += (int) Mathf.Pow((float) sheepSpawner.calmSheepList.Count, 2f) * scoreMult; // increment score
             scoreText.text = score.ToString();
             StartCoroutine(IncreaseScoreAnim());
-
-            yield return new WaitForSeconds(scoreUpdatePeriod);
         }
     }
 
@@ -44,7 +43,7 @@ public class ScoreHUD : MonoBehaviour
 
         for (int i = 0; i <= duration / step; i++)
         {
-            scoreText.fontSize = originalSize + i / 2 + Random.Range(-2, 2);
+            scoreText.fontSize = originalSize + i / 2;
             //scoreText.color = new Color(0.95f + Random.Range(-0.5f, 0.05f), 0f, 0f);
             yield return new WaitForSeconds(step);
         }
