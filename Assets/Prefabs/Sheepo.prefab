@@ -150,4 +150,4 @@ MonoBehaviour:
   baseAcceleration: 2
   panicAcceleration: 16
   pauseMovementFrames: 30
-  isPanicked: 1
+  isPanicked: 0
