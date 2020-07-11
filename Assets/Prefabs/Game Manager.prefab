@@ -47,3 +47,6 @@ MonoBehaviour:
   sheepPrecentHUD: {fileID: 0}
   gameOverPrefab: {fileID: 8219925913759740596, guid: 49a7fe1caeb05f94b87f27646c677722,
     type: 3}
+  stageCompletePrefab: {fileID: 8219925913759740596, guid: 7cd549ff74efe1940a22371a427ddb71,
+    type: 3}
+  stage: 0

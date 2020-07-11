@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 	public ScreenShake screenShake;
 	public GameObject dashJumpCollider;
 	public GameObject barkCollider;
+	public GameObject dashEndEffect;
 
 	private float boundary_x;
 	private float boundary_y;
@@ -56,6 +57,10 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
+		// hacky poop code
+		animator.SetBool("barking", false);
+		animator.SetBool("dashing", false);
+
 		// Gives a value between -1 and 1
 		horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
 		vertical = Input.GetAxisRaw("Vertical"); // -1 is down
@@ -65,8 +70,8 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		if (Input.GetMouseButtonDown(0)) {
-			Bark();
 			barking = true;
+			Bark();
 		}
 
 		Vector2 position;
@@ -76,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
 		this.transform.position = position;
 
 		AnimateDog();
-
 		barking = false;
 	}
 	void FixedUpdate()
@@ -127,18 +131,14 @@ public class PlayerMovement : MonoBehaviour
 		if (horizontal != 0 || vertical != 0) { animator.SetBool("isMoving", true); }
 		else { animator.SetBool("isMoving", false); }
 
-			if (body.velocity.x > 0) // moving right
-		{
-			dogRenderer.flipX = true;
-		}
-		else if (body.velocity.x <= 0) // moving left
-		{
-			dogRenderer.flipX = false;
-		}
-
-		if (dashing) { animator.SetTrigger("dash"); }
-		else if (barking) { animator.SetTrigger("bark"); }
-
+		if (dashing)
+		{ animator.SetBool("dashing", true); }
+		else if (barking) 
+		{ animator.SetBool("barking", true);}
+		else if (body.velocity.x > 0) // moving right
+		{ dogRenderer.flipX = true; }
+		else if (body.velocity.x < 0) // moving left
+		{ dogRenderer.flipX = false; }
 	}
 
 
@@ -161,6 +161,10 @@ public class PlayerMovement : MonoBehaviour
 		// Spawn collider to push back sheep
 		GameObject dashJumpColliderInstance = Instantiate(dashJumpCollider, this.transform.position, Quaternion.identity);
 		Destroy(dashJumpColliderInstance, 0.1f);
+
+		Vector2 effectPosition = new Vector2(this.transform.position.x, this.transform.position.y + 1.3f);
+		GameObject dashEndEffectInstance = Instantiate(dashEndEffect, effectPosition, Quaternion.identity);
+		Destroy(dashEndEffectInstance, 2f);
 	}
 
 	void Bark(){

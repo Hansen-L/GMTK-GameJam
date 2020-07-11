@@ -14,6 +14,6 @@ public class CalmSheepCountHUD : MonoBehaviour
 
     void Update() 
     {
-        countText.text = sheepSpawner.calmSheepList.Count.ToString();
+        countText.text = sheepSpawner.sheepList.Count.ToString() + " Baahs";
     }
 }
