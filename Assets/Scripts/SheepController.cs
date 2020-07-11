@@ -40,7 +40,18 @@ public class SheepController : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision) // collision refers to other object
 	{
-        if (collision.gameObject.CompareTag("Boundary")) //switch direction if we hit edge of map
+        if (collision.gameObject.CompareTag("Sheep"))
+        {
+            SheepController otherSheep = collision.gameObject.GetComponent<SheepController>();
+            if (isPanicked) //if this sheep is spooked
+            {
+                if (otherSheep) { otherSheep.PanicSheep(); } // Panic the other sheep
+            }
+            GenerateMovementDir(); // change direction of this sheep
+            if (otherSheep) { otherSheep.GenerateMovementDir(); } // change direction of other sheep
+        }
+
+        else if (collision.gameObject.CompareTag("Boundary")) //switch direction if we hit edge of map
         {
             if (Mathf.Abs(collision.relativeVelocity.x) > Mathf.Abs(collision.relativeVelocity.y)) // if hitting a side wall
             {
@@ -66,7 +77,7 @@ public class SheepController : MonoBehaviour
                 sheepRb.velocity = new Vector2(0, 0); // TODO: Maybe implement slower deceleration later
                 pauseFrameCount = pauseMovementFrames; // Pause sheep in place before switching dir
                 prevDir = movementDir;
-                movementDir = GenerateMovementDir();
+                GenerateMovementDir();
                 timeLeft += baseWanderingTime;
             }
         }
@@ -76,7 +87,7 @@ public class SheepController : MonoBehaviour
             {
                 //sheepRb.velocity = new Vector2(0, 0); // TODO: Maybe implement slower deceleration later
                 prevDir = movementDir;
-                movementDir = GenerateMovementDir();
+                GenerateMovementDir();
                 timeLeft += panicWanderingTime;
             }
         }
@@ -138,46 +149,47 @@ public class SheepController : MonoBehaviour
     {
     }
 
-    private Vector2 GenerateMovementDir()
+    public void GenerateMovementDir()
     {
         float x = this.transform.position.x;
         float y = this.transform.position.y;
 
         if (y > innerBoundary_y && x < -innerBoundary_x) //near topleft
         {
-            return (new Vector2(Random.Range(0.5f, 1f), Random.Range(-1f, -0.5f))).normalized;
+            movementDir = (new Vector2(Random.Range(0.5f, 1f), Random.Range(-1f, -0.5f))).normalized;
         }
         else if (y > innerBoundary_y && x > innerBoundary_x) //near topright
         {
-            return (new Vector2(Random.Range(-1f, -0.5f), Random.Range(-1f, -0.5f))).normalized;
+            movementDir = (new Vector2(Random.Range(-1f, -0.5f), Random.Range(-1f, -0.5f))).normalized;
         }
         else if (y < -innerBoundary_y && x < -innerBoundary_x) //near botleft
         {
-            return (new Vector2(Random.Range(1f, 0.5f), Random.Range(0.5f, 1f))).normalized;
+            movementDir = (new Vector2(Random.Range(1f, 0.5f), Random.Range(0.5f, 1f))).normalized;
         }
         else if (y < -innerBoundary_y && x > innerBoundary_x) //near botright
         {
-            return (new Vector2(Random.Range(-1f, -0.5f), Random.Range(0.5f, 1f))).normalized;
+            movementDir = (new Vector2(Random.Range(-1f, -0.5f), Random.Range(0.5f, 1f))).normalized;
         }
 
         else if (y > innerBoundary_y) //near top
         {
-            return (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, -0.5f))).normalized;
+            movementDir = (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, -0.5f))).normalized;
         }
         else if (y < -innerBoundary_y) //near bot
         {
-            return (new Vector2(Random.Range(-1f, 1f), Random.Range(0.5f, 1f))).normalized;
+            movementDir = (new Vector2(Random.Range(-1f, 1f), Random.Range(0.5f, 1f))).normalized;
         }
         else if (x < -innerBoundary_x) //near left
         {
-            return (new Vector2(Random.Range(0.5f, 1f), Random.Range(-1f, 1f))).normalized;
+            movementDir = (new Vector2(Random.Range(0.5f, 1f), Random.Range(-1f, 1f))).normalized;
         }
         else if (x > innerBoundary_x) //near right
         {
-            return (new Vector2(Random.Range(-1f, -0.5f), Random.Range(1f, 0.5f))).normalized;
+            movementDir = (new Vector2(Random.Range(-1f, -0.5f), Random.Range(1f, 0.5f))).normalized;
         }
-
-
-        return (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f))).normalized;
+        else
+        {
+            movementDir = (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f))).normalized;
+        }
     }
 }
