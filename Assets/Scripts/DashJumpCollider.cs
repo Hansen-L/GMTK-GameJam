@@ -2,14 +2,11 @@
 
 public class DashJumpCollider : MonoBehaviour 
 {
-
 	Rigidbody2D body;
-	Vector2 location;
 
 	void Start ()
 	{
 	   	body = GetComponent<Rigidbody2D>();
-	   	location = body.transform.position;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) // Should this live here or on the sheep/wolf?
@@ -19,7 +16,7 @@ public class DashJumpCollider : MonoBehaviour
 			SheepController sheep = collision.gameObject.GetComponent<SheepController>();
 			if (sheep) { 
 				sheep.UnpanicSheep(); 
-				sheep.ChangeVelocity(location); 
+				sheep.ChangeVelocity(transform.position); 
 
 				} // unpanic sheep from dashjump
 		}

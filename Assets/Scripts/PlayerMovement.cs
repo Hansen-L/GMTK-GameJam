@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
 
 		// Spawn collider to push back sheep
 		GameObject dashJumpColliderInstance = Instantiate(dashJumpCollider, this.transform.position, Quaternion.identity);
-		Destroy(dashJumpColliderInstance, 0.5f);
+		Destroy(dashJumpColliderInstance, 0.1f);
 	}
 
 	void Stun_start()

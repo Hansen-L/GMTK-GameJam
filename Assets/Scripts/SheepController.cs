@@ -180,11 +180,10 @@ public class SheepController : MonoBehaviour
         isStunned = true;
     }
 
-    public void ChangeVelocity(Vector2 direction)
+    public void ChangeVelocity(Vector2 centerPoint) //center point to move away from
     {
-
-        Vector2 dir = new Vector2(this.transform.position.x,this.transform.position.y)  - direction;
-        dir.Normalize();
+        Vector2 dir = new Vector2(this.transform.position.x, this.transform.position.y) - centerPoint; // direction to move sheep in
+        dir.Normalize(); 
 
         sheepRb.velocity = dir * pushVelocity;
 

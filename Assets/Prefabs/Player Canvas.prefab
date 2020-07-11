@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7202634104274896939}
   - component: {fileID: 6012308116776152409}
   m_Layer: 5
-  m_Name: Number of calm sheep
+  m_Name: Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 6078754654425320307}
   - component: {fileID: 6574130513276470105}
   m_Layer: 5
-  m_Name: Percent of sheep
+  m_Name: Percent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,6 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percentPanickedText: {fileID: 0}
   sheepSpawner: {fileID: 0}
+  percentPanicked: 0
 --- !u!1 &6078754655243157384
 GameObject:
   m_ObjectHideFlags: 0
