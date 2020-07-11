@@ -64,8 +64,14 @@ public class PlayerMovement : MonoBehaviour
 			}
 
 		}else if(dashing == true){
+
+
 			dash_timer += Time.fixedDeltaTime;
 			body.velocity = dash_speed * dash_direction;
+
+			if (dash_timer <= 0.2){
+				body.velocity = new Vector2(0,0);
+			}
 
 			if (dash_timer >= dash_time){
 				Dash_end();
@@ -87,6 +93,14 @@ public class PlayerMovement : MonoBehaviour
 
 		   	body.velocity = Vector2.ClampMagnitude(total_velocity, max_speed);
 		}
+
+		Vector2 position;
+
+		position.x = Mathf.Clamp(this.transform.position.x, -4, 4);
+		position.y = Mathf.Clamp(this.transform.position.y, -4, 4);
+
+		this.transform.position = position;
+
 	}
 
 	void Dash_start()

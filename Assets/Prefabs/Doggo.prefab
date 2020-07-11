@@ -147,7 +147,7 @@ MonoBehaviour:
   max_speed: 10
   friction: 0.6
   dash_speed: 40
-  dash_time: 0.1
+  dash_time: 0.3
   dash_end_stun: 0.1
   camera: {fileID: 0}
   screenShake: {fileID: 0}
