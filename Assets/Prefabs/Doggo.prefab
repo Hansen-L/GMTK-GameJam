@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 24546750019598945}
   - component: {fileID: 24546750019598946}
   - component: {fileID: 24546750019598947}
+  - component: {fileID: 2084045640}
   m_Layer: 10
   m_Name: Doggo
   m_TagString: Untagged
@@ -154,3 +155,22 @@ MonoBehaviour:
     type: 3}
   barkCollider: {fileID: 2402875183927296318, guid: eb63dcc50ff6e3f428887720aaa60d4e,
     type: 3}
+--- !u!95 &2084045640
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24546750019598956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ace55eceb9ee8284384b781417ac98ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

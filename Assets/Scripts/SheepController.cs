@@ -32,16 +32,14 @@ public class SheepController : MonoBehaviour
     {
         sheepRb = this.GetComponent<Rigidbody2D>();
         sheepRenderer = this.GetComponent<SpriteRenderer>();
+        animator = this.GetComponent<Animator>();
+        baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
 
         GameObject boundaryObj = GameObject.Find("Boundaries");
         BoundaryNumbers boundary = boundaryObj.GetComponent<BoundaryNumbers>();
 
         innerBoundary_x = boundary.playerBoundary_x - 6;
         innerBoundary_y = boundary.playerBoundary_y - 5;
-
-        animator = this.GetComponent<Animator>();
-
-        baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
     }
 
 	private void OnCollisionEnter2D(Collision2D collision) // collision refers to other object

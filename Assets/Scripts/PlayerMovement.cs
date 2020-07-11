@@ -31,6 +31,10 @@ public class PlayerMovement : MonoBehaviour
 
 	private float boundary_x;
 	private float boundary_y;
+	private int baseLayer;
+
+	private Animator animator;
+	private SpriteRenderer dogRenderer;
 
 
 	void Start ()
@@ -43,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
 
 		boundary_x = boundary.playerBoundary_x;
 		boundary_y = boundary.playerBoundary_y;
+
+		animator = this.GetComponent<Animator>();
+		dogRenderer = this.GetComponent<SpriteRenderer>();
+		baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
 	}
 
 	void Update()
@@ -50,10 +58,6 @@ public class PlayerMovement : MonoBehaviour
 	   	// Gives a value between -1 and 1
 	   	horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
 	   	vertical = Input.GetAxisRaw("Vertical"); // -1 is down
-
-		if (horizontal != 0){
-			transform.localScale = new Vector3(characterScale.x*-horizontal, characterScale.y, characterScale.z);
-		}
 
 	   	if (Input.GetKeyDown("space")){
 	   		Dash_start();
@@ -68,10 +72,9 @@ public class PlayerMovement : MonoBehaviour
 		position.x = Mathf.Clamp(this.transform.position.x, -boundary_x, boundary_x);
 		position.y = Mathf.Clamp(this.transform.position.y, -boundary_y, boundary_y);
 		this.transform.position = position;
+
+		AnimateDog();
 	}
-
-
-
 	void FixedUpdate()
 	{
 		if (stunned == true){
@@ -113,6 +116,22 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 	}
+
+	void AnimateDog()
+	{
+		// Animate based on movement
+		animator.SetFloat("moveSpeed", body.velocity.magnitude);
+
+		if (body.velocity.x > 0) // moving right
+		{
+			dogRenderer.flipX = true;
+		}
+		else if (body.velocity.x <= 0) // moving left
+		{
+			dogRenderer.flipX = false;
+		}
+	}
+
 
 	void Dash_start()
 	{
