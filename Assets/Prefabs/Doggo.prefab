@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 24546750019598945}
   - component: {fileID: 24546750019598946}
   - component: {fileID: 24546750019598947}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Doggo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 10000
   m_Sprite: {fileID: 21300000, guid: b02c2eff955a5984c8100fb7dd8cffb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -149,7 +149,6 @@ MonoBehaviour:
   dash_speed: 40
   dash_time: 0.3
   dash_end_stun: 0.1
-  camera: {fileID: 0}
   screenShake: {fileID: 0}
   dashJumpCollider: {fileID: 2402875183927296318, guid: 720a85d304d28f44dbc58c8c34d1ca49,
     type: 3}

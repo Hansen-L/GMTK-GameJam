@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
 	public float dash_speed;
 	public float dash_time;
 	public float dash_end_stun;
-	public Camera camera;
 	public ScreenShake screenShake;
 	public GameObject dashJumpCollider;
 

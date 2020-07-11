@@ -8,7 +8,20 @@ public class WolfController : MonoBehaviour
 
 	private Rigidbody2D wolfRb;
 	private SpriteRenderer wolfRenderer;
-	
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		// Wolf touches a sheep
+		if (collision.gameObject.CompareTag("Sheep"))
+		{
+			SheepController sheep = collision.gameObject.GetComponent<SheepController>();
+			if (sheep.isPanicked == false)
+			{
+				sheep.PanicSheep();
+				this.Die(); // Wolf disappears after touching sheep
+			}
+		}
+	}
 
 	void Start() 
 	{
@@ -18,7 +31,7 @@ public class WolfController : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		Vector2 newdirection = GetClosestSheep().transform.position - this.transform.position;
+		Vector2 newdirection = GetClosestSheep().transform.position - this.transform.position; //breaks if all sheep are panicked I think
 		newdirection.Normalize();
 
 		direction.x = Mathf.Lerp(direction.x, newdirection.x, 2*Time.fixedDeltaTime);
@@ -27,26 +40,29 @@ public class WolfController : MonoBehaviour
 		wolfRb.velocity = direction*velocity;
 	}
 
-	void Die()
-	{
-
+	public void Die()
+	{ // add death effect/smoke here
+		Destroy(gameObject);
 	}
 
-	GameObject GetClosestSheep()
+	GameObject GetClosestSheep() 
 	{
 		GameObject[] sheeps;
 		sheeps = GameObject.FindGameObjectsWithTag("Sheep");
 		GameObject closest = null;
 		float distance = Mathf.Infinity;
 		Vector3 position = transform.position;
-		foreach (GameObject go in sheeps)
+		foreach (GameObject go in sheeps) // very inefficient, hopefully we don't have to care though (might have to though, this is called ~60 times a second...)
 		{
-			Vector3 diff = go.transform.position - position;
-			float curDistance = diff.sqrMagnitude;
-			if (curDistance < distance)
+			if (go.GetComponent<SheepController>().isPanicked == false) // wolf should only hunt unpanicked sheep
 			{
-				closest = go;
-				distance = curDistance;
+				Vector3 diff = go.transform.position - position;
+				float curDistance = diff.sqrMagnitude;
+				if (curDistance < distance)
+				{
+					closest = go;
+					distance = curDistance;
+				}
 			}
 		}
 		return closest;

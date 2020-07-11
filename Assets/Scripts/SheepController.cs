@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils;
 
 public class SheepController : MonoBehaviour 
 {
@@ -20,6 +21,7 @@ public class SheepController : MonoBehaviour
 
     private float innerBoundary_x; // 8 // when do the sheep start turning towards the center?
     private float innerBoundary_y; // 4 
+    private int baseLayer;
 
     public Animator animator;
 
@@ -36,6 +38,8 @@ public class SheepController : MonoBehaviour
         innerBoundary_y = boundary.playerBoundary_y - 5;
 
         animator = this.GetComponent<Animator>();
+
+        baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
     }
 
 	private void OnCollisionEnter2D(Collision2D collision) // collision refers to other object
@@ -69,7 +73,6 @@ public class SheepController : MonoBehaviour
 	void Update()
     {
         timeLeft -= Time.deltaTime;
-
         if (!isPanicked) // Chill sheep
         {
             if (timeLeft <= 0) // Switch direction
@@ -93,6 +96,7 @@ public class SheepController : MonoBehaviour
         }
 
         AnimateSheep();
+        Utils.Utils.SetRenderLayer(gameObject, baseLayer);
     }
 
     void FixedUpdate()
@@ -149,51 +153,55 @@ public class SheepController : MonoBehaviour
     {
     }
 
-    public void KnockbackSheep(Vector2 knockbackDir) // take in a normalized knockback vector
+    public void GenerateMovementDir(Vector2 setMovementDir = default(Vector2))
     {
-    }
+        if (setMovementDir != default(Vector2)) // If we pass in a custom direction to set movement
+        {
+            movementDir = setMovementDir.normalized;
+            Debug.Log("TEST");
+        }
+        else // ugly code for keeping sheep away from edges of map
+        {
+            float x = this.transform.position.x;
+            float y = this.transform.position.y;
 
-    public void GenerateMovementDir()
-    {
-        float x = this.transform.position.x;
-        float y = this.transform.position.y;
+            if (y > innerBoundary_y && x < -innerBoundary_x) //near topleft
+            {
+                movementDir = (new Vector2(Random.Range(0.5f, 1f), Random.Range(-1f, -0.5f))).normalized;
+            }
+            else if (y > innerBoundary_y && x > innerBoundary_x) //near topright
+            {
+                movementDir = (new Vector2(Random.Range(-1f, -0.5f), Random.Range(-1f, -0.5f))).normalized;
+            }
+            else if (y < -innerBoundary_y && x < -innerBoundary_x) //near botleft
+            {
+                movementDir = (new Vector2(Random.Range(1f, 0.5f), Random.Range(0.5f, 1f))).normalized;
+            }
+            else if (y < -innerBoundary_y && x > innerBoundary_x) //near botright
+            {
+                movementDir = (new Vector2(Random.Range(-1f, -0.5f), Random.Range(0.5f, 1f))).normalized;
+            }
 
-        if (y > innerBoundary_y && x < -innerBoundary_x) //near topleft
-        {
-            movementDir = (new Vector2(Random.Range(0.5f, 1f), Random.Range(-1f, -0.5f))).normalized;
-        }
-        else if (y > innerBoundary_y && x > innerBoundary_x) //near topright
-        {
-            movementDir = (new Vector2(Random.Range(-1f, -0.5f), Random.Range(-1f, -0.5f))).normalized;
-        }
-        else if (y < -innerBoundary_y && x < -innerBoundary_x) //near botleft
-        {
-            movementDir = (new Vector2(Random.Range(1f, 0.5f), Random.Range(0.5f, 1f))).normalized;
-        }
-        else if (y < -innerBoundary_y && x > innerBoundary_x) //near botright
-        {
-            movementDir = (new Vector2(Random.Range(-1f, -0.5f), Random.Range(0.5f, 1f))).normalized;
-        }
-
-        else if (y > innerBoundary_y) //near top
-        {
-            movementDir = (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, -0.5f))).normalized;
-        }
-        else if (y < -innerBoundary_y) //near bot
-        {
-            movementDir = (new Vector2(Random.Range(-1f, 1f), Random.Range(0.5f, 1f))).normalized;
-        }
-        else if (x < -innerBoundary_x) //near left
-        {
-            movementDir = (new Vector2(Random.Range(0.5f, 1f), Random.Range(-1f, 1f))).normalized;
-        }
-        else if (x > innerBoundary_x) //near right
-        {
-            movementDir = (new Vector2(Random.Range(-1f, -0.5f), Random.Range(1f, 0.5f))).normalized;
-        }
-        else
-        {
-            movementDir = (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f))).normalized;
+            else if (y > innerBoundary_y) //near top
+            {
+                movementDir = (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, -0.5f))).normalized;
+            }
+            else if (y < -innerBoundary_y) //near bot
+            {
+                movementDir = (new Vector2(Random.Range(-1f, 1f), Random.Range(0.5f, 1f))).normalized;
+            }
+            else if (x < -innerBoundary_x) //near left
+            {
+                movementDir = (new Vector2(Random.Range(0.5f, 1f), Random.Range(-1f, 1f))).normalized;
+            }
+            else if (x > innerBoundary_x) //near right
+            {
+                movementDir = (new Vector2(Random.Range(-1f, -0.5f), Random.Range(1f, 0.5f))).normalized;
+            }
+            else
+            {
+                movementDir = (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f))).normalized;
+            }
         }
     }
 }
