@@ -149,6 +149,10 @@ public class SheepController : MonoBehaviour
     {
     }
 
+    public void KnockbackSheep(Vector2 knockbackDir) // take in a normalized knockback vector
+    {
+    }
+
     public void GenerateMovementDir()
     {
         float x = this.transform.position.x;

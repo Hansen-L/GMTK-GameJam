@@ -151,3 +151,5 @@ MonoBehaviour:
   dash_end_stun: 0.1
   camera: {fileID: 0}
   screenShake: {fileID: 0}
+  dashJumpCollider: {fileID: 2402875183927296318, guid: 720a85d304d28f44dbc58c8c34d1ca49,
+    type: 3}
