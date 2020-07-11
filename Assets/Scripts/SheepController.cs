@@ -152,6 +152,16 @@ public class SheepController : MonoBehaviour
         }
 
         // Animate based on movement
+        animator.SetFloat("moveSpeed", sheepRb.velocity.magnitude);
+
+        if (sheepRb.velocity.x > 0) // moving right
+        {
+            sheepRenderer.flipX = true;
+        }
+        else if (sheepRb.velocity.x <= 0) // moving left
+        {
+            sheepRenderer.flipX = false;
+        }
     }
 
     public void UnpanicSheep()
