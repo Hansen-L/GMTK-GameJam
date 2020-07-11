@@ -64,6 +64,7 @@ public class WolfController : MonoBehaviour
 
 	public void Die()
 	{ // add death effect/smoke here
+		wolfRenderer.enabled = false;
 		Destroy(gameObject);
 	}
 

@@ -454,8 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a81632e5eb49824fae8046a2183a60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalSpawner: {fileID: 7861852725487263289, guid: 1248f6834a44b294584195417017a2cc,
-    type: 3}
+  animalSpawner: {fileID: 0}
 --- !u!1 &8219925913759740596
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +569,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2572df3135a8247b702d1c76134318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1307093413015746225, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
-    type: 3}
   stageCompleteText: {fileID: 4583615883991734486}

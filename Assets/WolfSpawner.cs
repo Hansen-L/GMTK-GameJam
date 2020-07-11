@@ -7,14 +7,14 @@ public class WolfSpawner : MonoBehaviour
 {
 	public float spawnPeriod = 1f; // Time between spawns
 	public GameObject wolfPrefab;
-	public List<GameObject> wolfList = new List<GameObject>();
+	//public List<GameObject> wolfList = new List<GameObject>();
 
 	private float boundary_x;
 	private float boundary_y;
 
 	private void Awake()
 	{
-		wolfList = GameObject.FindGameObjectsWithTag("Wolf").ToList();
+		//wolfList = GameObject.FindGameObjectsWithTag("Wolf").ToList();
 	}
 
 	private void Start()
@@ -41,7 +41,7 @@ public class WolfSpawner : MonoBehaviour
 				// Spawn outside fence
 				Vector2 spawnPosition = new Vector2(Random.Range(-boundary_x, boundary_x), y); // Choose random position in our designated box
 				GameObject wolfInstance = Instantiate(wolfPrefab, spawnPosition, Quaternion.identity);
-				wolfList.Add(wolfInstance);
+				//wolfList.Add(wolfInstance);
 			}
 			else // spawn on left/right
 			{
@@ -50,7 +50,7 @@ public class WolfSpawner : MonoBehaviour
 				// Spawn outside fence
 				Vector2 spawnPosition = new Vector2(x, Random.Range(-boundary_y, boundary_y)); // Choose random position in our designated box
 				GameObject wolfInstance = Instantiate(wolfPrefab, spawnPosition, Quaternion.identity);
-				wolfList.Add(wolfInstance);
+				//wolfList.Add(wolfInstance);
 			}
 
 		}
@@ -58,6 +58,7 @@ public class WolfSpawner : MonoBehaviour
 
 	public void KillAllWolves() // Can be called from other functions
 	{
+		GameObject[] wolfList = GameObject.FindGameObjectsWithTag("Wolf");
 		foreach (GameObject wolf in wolfList){
 			wolf.GetComponent<WolfController>().Die();
 		}
