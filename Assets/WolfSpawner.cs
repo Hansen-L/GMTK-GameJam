@@ -24,6 +24,8 @@ public class WolfSpawner : MonoBehaviour
 	{
 		while (true)
 		{
+			yield return new WaitForSeconds(spawnPeriod);
+
 			if (Random.Range(0f, 1f) > 0.5) // Half the time, spawn on top/bot
 			{
 				int signFlip = Random.Range(0, 2) * 2 - 1; // either -1 or 1
@@ -41,7 +43,6 @@ public class WolfSpawner : MonoBehaviour
 				Instantiate(wolfPrefab, spawnPosition, Quaternion.identity);
 			}
 
-			yield return new WaitForSeconds(spawnPeriod);
 		}
 	}
 }

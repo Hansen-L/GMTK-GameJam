@@ -8,11 +8,10 @@ public class SheepController : MonoBehaviour
     public float panicWanderingTime = 1.5f;
     public float panicMaxspeed = 7f;
     public float baseAcceleration = 2f;
-    public float panicAcceleration = 16f;
     public bool isPanicked = false;
     public int pauseMovementFrames = 30; // how long to stop the sheep before changing direction
     public float pushVelocity;
-    public float StunTime;
+    public float stunTime;
     public float friction;
     private bool isStunned;
 
@@ -86,13 +85,11 @@ public class SheepController : MonoBehaviour
 
         if (isStunned){
             sheepRb.velocity = new Vector2(sheepRb.velocity.x*friction,sheepRb.velocity.y*friction);
-            timeLeft += StunTime;
+            timeLeft += stunTime;
             if (timeLeft <=0){
                 isStunned = false;
             }
         }
-
-
 
         if (!isPanicked) // Chill sheep
         {
@@ -109,7 +106,7 @@ public class SheepController : MonoBehaviour
         {
             if (timeLeft <= 0) // Switch direction
             {
-                //sheepRb.velocity = new Vector2(0, 0); // TODO: Maybe implement slower deceleration later
+                sheepRb.velocity = new Vector2(0, 0); // TODO: Maybe implement slower deceleration later
                 prevDir = movementDir;
                 GenerateMovementDir();
                 timeLeft += panicWanderingTime;
@@ -133,10 +130,7 @@ public class SheepController : MonoBehaviour
             }
             else if (isPanicked)
             {
-                if (sheepRb.velocity.magnitude < panicMaxspeed)
-                {
-                    sheepRb.AddForce(movementDir * panicAcceleration);
-                }
+                sheepRb.velocity = movementDir * panicMaxspeed; // sharp turns when panicked
             }
         }
         else
