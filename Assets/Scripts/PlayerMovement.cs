@@ -28,11 +28,20 @@ public class PlayerMovement : MonoBehaviour
 	public Camera camera;
 	public ScreenShake screenShake;
 
+	private float boundary_x;
+	private float boundary_y;
+
 
 	void Start ()
 	{
 	   	body = GetComponent<Rigidbody2D>();
 	   	characterScale = transform.localScale;
+
+		GameObject boundaryObj = GameObject.Find("Boundaries");
+		BoundaryNumbers boundary = boundaryObj.GetComponent<BoundaryNumbers>();
+
+		boundary_x = boundary.playerBoundary_x;
+		boundary_y = boundary.playerBoundary_y;
 	}
 
 	void Update()
@@ -96,9 +105,8 @@ public class PlayerMovement : MonoBehaviour
 
 		Vector2 position;
 
-		position.x = Mathf.Clamp(this.transform.position.x, -4, 4);
-		position.y = Mathf.Clamp(this.transform.position.y, -4, 4);
-
+		position.x = Mathf.Clamp(this.transform.position.x, -boundary_x, boundary_x);
+		position.y = Mathf.Clamp(this.transform.position.y, -boundary_y, boundary_y);
 		this.transform.position = position;
 
 	}
