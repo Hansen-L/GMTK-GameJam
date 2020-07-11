@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class WolfController : MonoBehaviour 
 {
@@ -8,6 +9,15 @@ public class WolfController : MonoBehaviour
 
 	private Rigidbody2D wolfRb;
 	private SpriteRenderer wolfRenderer;
+	private SheepSpawner sheepSpawner;
+
+	void Start() 
+	{
+		wolfRb = this.GetComponent<Rigidbody2D>();
+		wolfRenderer = this.GetComponent<SpriteRenderer>();
+
+		sheepSpawner = GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>();
+	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -23,21 +33,20 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	void Start() 
-	{
-		wolfRb = this.GetComponent<Rigidbody2D>();
-		wolfRenderer = this.GetComponent<SpriteRenderer>();
-	}
-
 	void FixedUpdate()
 	{
-		Vector2 newdirection = GetClosestSheep().transform.position - this.transform.position; //breaks if all sheep are panicked I think
-		newdirection.Normalize();
+		GameObject closestSheep = GetClosestSheep();
 
-		direction.x = Mathf.Lerp(direction.x, newdirection.x, 2*Time.fixedDeltaTime);
-		direction.y = Mathf.Lerp(direction.y, newdirection.y, 2*Time.fixedDeltaTime);
+		if (closestSheep) // if there exists a non-panicked sheep
+		{
+			Vector2 newdirection = closestSheep.transform.position - this.transform.position;
+			newdirection.Normalize();
 
-		wolfRb.velocity = direction*velocity;
+			direction.x = Mathf.Lerp(direction.x, newdirection.x, 2 * Time.fixedDeltaTime);
+			direction.y = Mathf.Lerp(direction.y, newdirection.y, 2 * Time.fixedDeltaTime);
+
+			wolfRb.velocity = direction * velocity;
+		}
 	}
 
 	public void Die()
@@ -47,14 +56,15 @@ public class WolfController : MonoBehaviour
 
 	GameObject GetClosestSheep() 
 	{
-		GameObject[] sheeps;
-		sheeps = GameObject.FindGameObjectsWithTag("Sheep");
+		List<GameObject> calmSheepList;
+		calmSheepList = sheepSpawner.calmSheepList; // Wolf only hunts unpanicked sheep
 		GameObject closest = null;
-		float distance = Mathf.Infinity;
-		Vector3 position = transform.position;
-		foreach (GameObject go in sheeps) // very inefficient, hopefully we don't have to care though (might have to though, this is called ~60 times a second...)
+
+		if (calmSheepList.Count != 0) // avoid errors
 		{
-			if (go.GetComponent<SheepController>().isPanicked == false) // wolf should only hunt unpanicked sheep
+			float distance = Mathf.Infinity;
+			Vector3 position = transform.position;
+			foreach (GameObject go in calmSheepList) // very inefficient, hopefully we don't have to care though (might have to though, this is called ~60 times a second...)
 			{
 				Vector3 diff = go.transform.position - position;
 				float curDistance = diff.sqrMagnitude;
@@ -64,7 +74,9 @@ public class WolfController : MonoBehaviour
 					distance = curDistance;
 				}
 			}
+
 		}
+
 		return closest;
 	}
 }
