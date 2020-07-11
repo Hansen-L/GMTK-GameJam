@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Utils;
 
 public class WolfController : MonoBehaviour 
 {
@@ -10,11 +11,13 @@ public class WolfController : MonoBehaviour
 	private Rigidbody2D wolfRb;
 	private SpriteRenderer wolfRenderer;
 	private SheepSpawner sheepSpawner;
+	private int baseLayer;
 
 	void Start() 
 	{
 		wolfRb = this.GetComponent<Rigidbody2D>();
 		wolfRenderer = this.GetComponent<SpriteRenderer>();
+		baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
 
 		sheepSpawner = GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>();
 	}
@@ -31,6 +34,21 @@ public class WolfController : MonoBehaviour
 				this.Die(); // Wolf disappears after touching sheep
 			}
 		}
+	}
+
+	private void Update()
+	{
+		// Animate wolf
+		if (wolfRb.velocity.x > 0) // moving right
+		{
+			wolfRenderer.flipX = true;
+		}
+		else if (wolfRb.velocity.x <= 0) // moving left
+		{
+			wolfRenderer.flipX = false;
+		}
+
+		Utils.Utils.SetRenderLayer(gameObject, baseLayer);
 	}
 
 	void FixedUpdate()
@@ -51,6 +69,7 @@ public class WolfController : MonoBehaviour
 
 	public void Die()
 	{ // add death effect/smoke here
+		wolfRenderer.enabled = false;
 		Destroy(gameObject);
 	}
 

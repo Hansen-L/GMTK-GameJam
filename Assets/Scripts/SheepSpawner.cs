@@ -21,7 +21,7 @@ public class SheepSpawner : MonoBehaviour
 
 	private void Start()
 	{
-		StartCoroutine(SpawnSheepCoroutine());
+		//StartCoroutine(SpawnSheepCoroutine());
 	}
 
 	private void Update()
@@ -55,6 +55,13 @@ public class SheepSpawner : MonoBehaviour
 			Vector2 spawnPosition = new Vector2(Random.Range(-spawnRange_x, spawnRange_x), Random.Range(-spawnRange_y, spawnRange_y)); // Choose random position in our designated box
 			GameObject newSheep = Instantiate(sheepPrefab, spawnPosition, Quaternion.identity);
 			sheepList.Add(newSheep);
+		}
+	}
+
+	public void MakeSheepCalm() // Can be called from other functions
+	{
+		foreach (GameObject sheep in panickedSheepList){
+			sheep.GetComponent<SheepController>().UnpanicSheep();
 		}
 	}
 }

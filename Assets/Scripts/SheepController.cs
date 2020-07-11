@@ -103,7 +103,7 @@ public class SheepController : MonoBehaviour
                 pauseFrameCount = pauseMovementFrames; // Pause sheep in place before switching dir
                 prevDir = movementDir;
                 GenerateMovementDir();
-                timeLeft += baseWanderingTime;
+                timeLeft += baseWanderingTime + Random.Range(-1f, 1f);
             }
         }
         else if (isPanicked) // Panic sheep
