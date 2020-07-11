@@ -681,7 +681,7 @@ PrefabInstance:
     - target: {fileID: 6042198682113405582, guid: 7e093f8bdbe2ec149a433b242da1a12d,
         type: 3}
       propertyPath: m_Name
-      value: Temp Background
+      value: Background
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e093f8bdbe2ec149a433b242da1a12d, type: 3}
@@ -884,11 +884,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Animal Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 7861852725487263290, guid: 1248f6834a44b294584195417017a2cc,
-        type: 3}
-      propertyPath: spawnPeriod
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7861852725487263291, guid: 1248f6834a44b294584195417017a2cc,
         type: 3}

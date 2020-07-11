@@ -30,7 +30,7 @@ public class ScoreHUD : MonoBehaviour
         {
             yield return new WaitForSeconds(scoreUpdatePeriod);
 
-            score += (int) Mathf.Pow((float) sheepSpawner.calmSheepList.Count, 2f) * scoreMult; // increment score
+            score += (int) Mathf.Pow((float) sheepSpawner.calmSheepList.Count, 3f) * scoreMult; // increment score
             scoreText.text = score.ToString();
             StartCoroutine(IncreaseScoreAnim());
         }
