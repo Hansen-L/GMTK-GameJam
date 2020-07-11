@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Utils;
 
 public class WolfController : MonoBehaviour 
 {
@@ -10,11 +11,13 @@ public class WolfController : MonoBehaviour
 	private Rigidbody2D wolfRb;
 	private SpriteRenderer wolfRenderer;
 	private SheepSpawner sheepSpawner;
+	private int baseLayer;
 
 	void Start() 
 	{
 		wolfRb = this.GetComponent<Rigidbody2D>();
 		wolfRenderer = this.GetComponent<SpriteRenderer>();
+		baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
 
 		sheepSpawner = GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>();
 	}
@@ -44,6 +47,8 @@ public class WolfController : MonoBehaviour
 		{
 			wolfRenderer.flipX = false;
 		}
+
+		Utils.Utils.SetRenderLayer(gameObject, baseLayer);
 	}
 
 	void FixedUpdate()
