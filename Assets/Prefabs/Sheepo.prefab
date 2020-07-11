@@ -153,6 +153,8 @@ MonoBehaviour:
   pauseMovementFrames: 30
   stunTime: 0
   friction: 0.9
+  audioManager: {fileID: 4081911822070918085, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
+    type: 3}
   animator: {fileID: -699948635911157126}
 --- !u!95 &-699948635911157126
 Animator:
