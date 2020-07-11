@@ -46,9 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRange_x: 8
   spawnRange_y: 4
-  spawnPeriod: 0.1
+  spawnPeriod: 1
   sheepPrefab: {fileID: 3179488869572368684, guid: 1183e211ce6c55747b764c762a8ed481,
     type: 3}
+  sheepList: []
 --- !u!114 &-4868944630038650806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +62,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f485e52bf38f484dad2f2e5b6397e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPeriod: 1
+  spawnPeriod: 2
   wolfPrefab: {fileID: 2092446517189518467, guid: 851143efc3507eb458b59614bceaea57,
     type: 3}
