@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class StageScreenScript : MonoBehaviour
 {
-
-
-	public GameObject gameManager;
+	private GameObject gameManager;
+    public TextMeshProUGUI stageCompleteText;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("Complete").GetComponent<TextMeshProUGUI>().text = "STAGE " + gameManager.GetComponent<GameManager>().stage + " COMPLETE";
+        gameManager = GameObject.Find("Game Manager");
+        stageCompleteText.text = "STAGE " + gameManager.GetComponent<GameManager>().stage.ToString() + " COMPLETE";
     }
 
     // Update is called once per frame

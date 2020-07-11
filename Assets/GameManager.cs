@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
     public int gameOverPercent = 90;
     public SheepPercentHUD sheepPrecentHUD;
     public GameObject gameOverPrefab;
-    public GameObject stagePrefab;
+    public GameObject stageCompletePrefab;
     public int stage;
 
     private float timer;
@@ -23,10 +23,10 @@ public class GameManager : MonoBehaviour
     {
      	timer += Time.deltaTime;   
     	if (timer > 10){
-    		GameObject stageComplete = Instantiate(stagePrefab, new Vector3(0, 0), Quaternion.identity);
+    		GameObject stageComplete = Instantiate(stageCompletePrefab, new Vector3(0, 0), Quaternion.identity);
     		stage +=1;
     		timer = 0;
-    		Time.timeScale = 0;
+    		//Time.timeScale = 0;
     	}
 
 
