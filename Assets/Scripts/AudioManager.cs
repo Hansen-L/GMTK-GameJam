@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
 			s.source.loop = s.loop;
 		}
 
-		Play("BGM");
+		//Play("BGM");
 	}
 
 	public void Play(string name)
@@ -35,6 +35,6 @@ public class AudioManager : MonoBehaviour
 
 		// If we found the sound, play it
 		if (s == null) { Debug.LogWarning("Sound: " + name + " not found!"); }
-		else { s.source.Play(); }
+		else { s.source.PlayOneShot(s.clip); }
 	}
 }

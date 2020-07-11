@@ -13,6 +13,8 @@ public class SheepController : MonoBehaviour
     public float stunTime;
     public float friction;
     private bool isStunned;
+    private float beehChance = 0.02f / 60f;
+    private int beehNb = 4;
 
     private float timeLeft = 2f; // tracking time before direction switches
     private Vector2 movementDir;
@@ -92,7 +94,6 @@ public class SheepController : MonoBehaviour
                 isStunned = false;
             }
         }
-        //audioManager.Play("BGM");
 
         if (!isPanicked) // Chill sheep
         {
@@ -116,6 +117,7 @@ public class SheepController : MonoBehaviour
             }
         }
 
+        Beeh();
         AnimateSheep();
         Utils.Utils.SetRenderLayer(gameObject, baseLayer);
     }
@@ -139,6 +141,14 @@ public class SheepController : MonoBehaviour
         else
         {
             pauseFrameCount -= 1;
+        }
+    }
+
+    void Beeh()
+    {
+        if (Random.value < beehChance)
+        {
+            audioManager.Play("sheep" + (Random.Range(0, beehNb) + 1));
         }
     }
 
