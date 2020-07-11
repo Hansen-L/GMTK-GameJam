@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 	public float dash_end_stun;
 	public ScreenShake screenShake;
 	public GameObject dashJumpCollider;
+	public GameObject barkCollider;
 
 	private float boundary_x;
 	private float boundary_y;
@@ -57,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
 	   	if (Input.GetKeyDown("space")){
 	   		Dash_start();
 	   	}
+
+	   	if (Input.GetMouseButtonDown(0)){
+	   		Bark();
+	   	}
+
 		Vector2 position;
 
 		position.x = Mathf.Clamp(this.transform.position.x, -boundary_x, boundary_x);
@@ -127,6 +133,16 @@ public class PlayerMovement : MonoBehaviour
 		// Spawn collider to push back sheep
 		GameObject dashJumpColliderInstance = Instantiate(dashJumpCollider, this.transform.position, Quaternion.identity);
 		Destroy(dashJumpColliderInstance, 0.1f);
+	}
+
+	void Bark(){
+		Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector2 direction = new Vector2 (mousePos.x - this.transform.position.x, mousePos.y - this.transform.position.y);
+		direction.Normalize();
+		Vector2 position =  new Vector2(this.transform.position.x,this.transform.position.y)  + direction * 2;
+		GameObject barkInstance = Instantiate(barkCollider, position, Quaternion.identity);
+		barkInstance.GetComponent<BarkCollider>().getPos(this.transform.position);
+		Destroy(barkInstance, 0.1f);
 	}
 
 	void Stun_start()

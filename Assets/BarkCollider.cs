@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 
-public class DashJumpCollider : MonoBehaviour 
+public class BarkCollider : MonoBehaviour 
 {
 	Rigidbody2D body;
+	Vector2 dogposition;
+
 	public float velocity;
+
 	void Start ()
 	{
 	   	body = GetComponent<Rigidbody2D>();
+	}
+
+	public void getPos(Vector2 position){
+		dogposition = position;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) // Should this live here or on the sheep/wolf?
@@ -16,7 +23,7 @@ public class DashJumpCollider : MonoBehaviour
 			SheepController sheep = collision.gameObject.GetComponent<SheepController>();
 			if (sheep) { 
 				sheep.UnpanicSheep(); 
-				sheep.ChangeVelocity(transform.position, velocity); 
+				sheep.ChangeVelocity(dogposition, velocity); 
 
 				} // unpanic sheep from dashjump
 		}
