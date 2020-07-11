@@ -10,7 +10,6 @@ public class SheepController : MonoBehaviour
     public float baseAcceleration = 2f;
     public bool isPanicked = false;
     public int pauseMovementFrames = 30; // how long to stop the sheep before changing direction
-    public float pushVelocity;
     public float stunTime;
     public float friction;
     private bool isStunned;
@@ -174,12 +173,12 @@ public class SheepController : MonoBehaviour
         isStunned = true;
     }
 
-    public void ChangeVelocity(Vector2 centerPoint) //center point to move away from
+    public void ChangeVelocity(Vector2 centerPoint, float velocity) //center point to move away from
     {
         Vector2 dir = new Vector2(this.transform.position.x, this.transform.position.y) - centerPoint; // direction to move sheep in
         dir.Normalize(); 
 
-        sheepRb.velocity = dir * pushVelocity;
+        sheepRb.velocity = dir * velocity;
 
         Stunned();
     }
