@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 	Vector2 dash_direction;
 	bool dashing;
 	bool stunned;
+	bool barking;
 
 	Vector3 characterScale;
 
@@ -65,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
 	   	if (Input.GetMouseButtonDown(0)){
 	   		Bark();
+			barking = true;
 	   	}
 
 		Vector2 position;
@@ -74,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
 		this.transform.position = position;
 
 		AnimateDog();
+
+		barking = false;
 	}
 	void FixedUpdate()
 	{
@@ -130,6 +134,10 @@ public class PlayerMovement : MonoBehaviour
 		{
 			dogRenderer.flipX = false;
 		}
+
+		if (dashing) { animator.SetTrigger("dash"); }
+		else if (barking) { animator.SetTrigger("bark"); }
+
 	}
 
 
