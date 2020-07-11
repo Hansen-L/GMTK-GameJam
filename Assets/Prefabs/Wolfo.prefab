@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 3179488869572368680}
   - component: {fileID: 3179488869572368683}
   - component: {fileID: 3179488869572368682}
-  - component: {fileID: 3179488869572368685}
-  - component: {fileID: -699948635911157126}
+  - component: {fileID: 5490737393661601444}
   m_Layer: 0
-  m_Name: Sheepo
+  m_Name: Wolfo
   m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 21300000, guid: 738c07bf20a32e243bf1ab4d124196c5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b02c2eff955a5984c8100fb7dd8cffb2, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1545484, y: 0.08131266}
   m_EdgeRadius: 0
---- !u!114 &3179488869572368685
+--- !u!114 &5490737393661601444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,34 +140,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3179488869572368684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a295d6550f439be44aa3e5d85a127904, type: 3}
+  m_Script: {fileID: 11500000, guid: a7deefd0b5fa65544b25a7d76a51e40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseWanderingTime: 4
-  baseMaxspeed: 5
-  panicWanderingTime: 1.5
-  panicMaxspeed: 7
-  baseAcceleration: 2
-  panicAcceleration: 16
-  isPanicked: 0
-  pauseMovementFrames: 30
-  animator: {fileID: 0}
---- !u!95 &-699948635911157126
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3179488869572368684}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a0a68d8257bb724598e975d1e983a7b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
