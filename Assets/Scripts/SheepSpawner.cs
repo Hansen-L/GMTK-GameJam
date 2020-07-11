@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class SheepSpawner : MonoBehaviour 
 {
@@ -12,6 +13,11 @@ public class SheepSpawner : MonoBehaviour
 	public List<GameObject> sheepList = new List<GameObject>(); // Store all the spawned sheep. Sheep never die
 	public List<GameObject> panickedSheepList = new List<GameObject>();
 	public List<GameObject> calmSheepList = new List<GameObject>();
+
+	private void Awake()
+	{
+		sheepList = GameObject.FindGameObjectsWithTag("Sheep").ToList(); // Instantiate sheep list with sheep on screen
+	}
 
 	private void Start()
 	{

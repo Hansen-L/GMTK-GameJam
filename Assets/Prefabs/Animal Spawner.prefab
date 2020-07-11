@@ -50,6 +50,8 @@ MonoBehaviour:
   sheepPrefab: {fileID: 3179488869572368684, guid: 1183e211ce6c55747b764c762a8ed481,
     type: 3}
   sheepList: []
+  panickedSheepList: []
+  calmSheepList: []
 --- !u!114 &-4868944630038650806
 MonoBehaviour:
   m_ObjectHideFlags: 0
