@@ -495,6 +495,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 24546750019598944, guid: 20ba07ad2d9d3904595964d5cb828676,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 24546750019598947, guid: 20ba07ad2d9d3904595964d5cb828676,
         type: 3}
       propertyPath: screenShake
