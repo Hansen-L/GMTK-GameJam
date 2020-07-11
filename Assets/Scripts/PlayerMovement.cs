@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -82,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
 		AnimateDog();
 		barking = false;
+
+		Utils.Utils.SetRenderLayer(gameObject, baseLayer);
 	}
 	void FixedUpdate()
 	{
