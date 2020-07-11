@@ -38,10 +38,10 @@ public class PlayerMovement : MonoBehaviour
 	private SpriteRenderer dogRenderer;
 
 
-	void Start ()
+	void Start()
 	{
-	   	body = GetComponent<Rigidbody2D>();
-	   	characterScale = transform.localScale;
+		body = GetComponent<Rigidbody2D>();
+		characterScale = transform.localScale;
 
 		GameObject boundaryObj = GameObject.Find("Boundaries");
 		BoundaryNumbers boundary = boundaryObj.GetComponent<BoundaryNumbers>();
@@ -56,18 +56,18 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
-	   	// Gives a value between -1 and 1
-	   	horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
-	   	vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+		// Gives a value between -1 and 1
+		horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
+		vertical = Input.GetAxisRaw("Vertical"); // -1 is down
 
-	   	if (Input.GetKeyDown("space")){
-	   		Dash_start();
-	   	}
+		if (Input.GetKeyDown("space")) {
+			Dash_start();
+		}
 
-	   	if (Input.GetMouseButtonDown(0)){
-	   		Bark();
+		if (Input.GetMouseButtonDown(0)) {
+			Bark();
 			barking = true;
-	   	}
+		}
 
 		Vector2 position;
 
@@ -81,52 +81,53 @@ public class PlayerMovement : MonoBehaviour
 	}
 	void FixedUpdate()
 	{
-		if (stunned == true){
+		if (stunned == true) {
 			stun_timer += Time.fixedDeltaTime;
-			body.velocity = new Vector2(0,0);
-			if (stun_timer >= stun_time){
+			body.velocity = new Vector2(0, 0);
+			if (stun_timer >= stun_time) {
 				stunned = false;
 			}
 
-		}else if(dashing == true){
+		} else if (dashing == true) {
 
 
 			dash_timer += Time.fixedDeltaTime;
 			body.velocity = dash_speed * dash_direction;
 
-			if (dash_timer <= 0.2){
-				body.velocity = new Vector2(0,0);
+			if (dash_timer <= 0.2) {
+				body.velocity = new Vector2(0, 0);
 			}
 
-			if (dash_timer >= dash_time){
+			if (dash_timer >= dash_time) {
 				Dash_end();
 			}
 
-		}else{
+		} else {
 
-			if (horizontal * h_velocity <= 0){
+			if (horizontal * h_velocity <= 0) {
 				h_velocity *= friction;
 			}
-			if (vertical * v_velocity <= 0){
+			if (vertical * v_velocity <= 0) {
 				v_velocity *= friction;
 			}
 
-			h_velocity = Mathf.Clamp(h_velocity + horizontal * acceleration,-max_speed, max_speed);
-			v_velocity = Mathf.Clamp(v_velocity + vertical * acceleration,-max_speed, max_speed);
+			h_velocity = Mathf.Clamp(h_velocity + horizontal * acceleration, -max_speed, max_speed);
+			v_velocity = Mathf.Clamp(v_velocity + vertical * acceleration, -max_speed, max_speed);
 
 			Vector2 total_velocity = new Vector2(h_velocity, v_velocity);
 
-		   	body.velocity = Vector2.ClampMagnitude(total_velocity, max_speed);
+			body.velocity = Vector2.ClampMagnitude(total_velocity, max_speed);
 		}
 
 	}
 
 	void AnimateDog()
 	{
-		// Animate based on movement
-		animator.SetFloat("moveSpeed", body.velocity.magnitude);
+		// If player is moving
+		if (horizontal != 0 || vertical != 0) { animator.SetBool("isMoving", true); }
+		else { animator.SetBool("isMoving", false); }
 
-		if (body.velocity.x > 0) // moving right
+			if (body.velocity.x > 0) // moving right
 		{
 			dogRenderer.flipX = true;
 		}
