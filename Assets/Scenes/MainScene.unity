@@ -1501,11 +1501,6 @@ PrefabInstance:
       propertyPath: screenShake
       value: 
       objectReference: {fileID: 424173951}
-    - target: {fileID: 24546750019598947, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: max_speed
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 24546750019598951, guid: 20ba07ad2d9d3904595964d5cb828676,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1566,120 +1561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doggo
       objectReference: {fileID: 0}
-    - target: {fileID: 4294682874480546036, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4294682874480546036, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: m_Time
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: VelocityModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ClampVelocityModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: VelocityModule.x.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: VelocityModule.y.scalar
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.inWorldSpace
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.x.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.y.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.x.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.y.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.z.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.randomizePerFrame
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.x.minScalar
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: ForceModule.y.minScalar
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: VelocityModule.x.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: VelocityModule.y.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: VelocityModule.z.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: VelocityModule.x.minScalar
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: VelocityModule.y.minScalar
-      value: -1
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ba07ad2d9d3904595964d5cb828676, type: 3}
@@ -1694,16 +1579,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307093413015746238, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
-        type: 3}
-      propertyPath: stage
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307093413015746238, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
-        type: 3}
-      propertyPath: gameOverPercent
-      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 1307093413015746239, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
         type: 3}
