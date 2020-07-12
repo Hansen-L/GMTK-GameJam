@@ -60,9 +60,9 @@ public class ContinueScript : MonoBehaviour
         } else { // smaller sheep?
             animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(20 * gameManager.stage);
         }
-        animalSpawner.GetComponent<SheepSpawner>().MakeSheepCalm();
         animalSpawner.GetComponent<WolfSpawner>().KillAllWolves();
         lightningSpawner.GetComponent<LightningSpawner>().KillAllLightning();
+        animalSpawner.GetComponent<SheepSpawner>().MakeSheepCalm();
         
         Destroy(this.transform.parent.gameObject);
     }
