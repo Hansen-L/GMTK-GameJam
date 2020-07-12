@@ -32,7 +32,7 @@ public class WolfSpawner : MonoBehaviour
 	{
 		GameObject gameManager;
 		gameManager = GameObject.Find("Game Manager");
-		spawnPeriod = gameManager.GetComponent<GameManager>().timer/(gameManager.GetComponent<GameManager>().stage+6);
+		spawnPeriod = gameManager.GetComponent<GameManager>().timer/(2*gameManager.GetComponent<GameManager>().stage+6);
 		
 	}
 

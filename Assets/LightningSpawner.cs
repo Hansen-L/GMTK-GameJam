@@ -26,7 +26,7 @@ public class LightningSpawner : MonoBehaviour
 	{
 		GameObject gameManager;
 		gameManager = GameObject.Find("Game Manager");
-		spawnPeriod = gameManager.GetComponent<GameManager>().timer/(gameManager.GetComponent<GameManager>().stage+6);
+		spawnPeriod = gameManager.GetComponent<GameManager>().timer/(gameManager.GetComponent<GameManager>().stage+6)+0.5f;
 		
 	}
 
@@ -37,7 +37,7 @@ public class LightningSpawner : MonoBehaviour
 			yield return new WaitForSeconds(spawnPeriod);
 			GameObject gameManager;
 			gameManager = GameObject.Find("Game Manager");
-			if (gameManager.GetComponent<GameManager>().stage > 0 && gameManager.GetComponent<GameManager>().timer > 3 && gameManager.GetComponent<GameManager>().timer < 57){
+			if (gameManager.GetComponent<GameManager>().stage > 0 && gameManager.GetComponent<GameManager>().timer > 4 && gameManager.GetComponent<GameManager>().timer < 55){
 				Vector2 spawnPosition = new Vector2(Random.Range(-boundary_x, boundary_x), Random.Range(-boundary_y + 7, boundary_y + 5)); // Choose random position in our designated box
 				GameObject lightningInstance = Instantiate(lightningPrefab, spawnPosition, Quaternion.identity);
 				Destroy(lightningInstance, 10f);
