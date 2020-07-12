@@ -60,7 +60,7 @@ public class SheepSpawner : MonoBehaviour
 				newSheep.transform.localScale = new Vector2 (2f,2f);
 			}
 			if (bigger == true){
-				newSheep.transform.localScale = new Vector2 (16f,16f);
+				newSheep.transform.localScale = new Vector2 (10f,10f);
 			}
 			sheepList.Add(newSheep);
 		}

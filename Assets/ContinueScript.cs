@@ -46,7 +46,7 @@ public class ContinueScript : MonoBehaviour
         if (GetComponent<TextMeshProUGUI>().text == "MEGA SHEEPS"){
             GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().bigger = true;
             GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().MakeSheepSmall();
-            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(15);
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(26);
         }
 
         Time.timeScale = 1;
