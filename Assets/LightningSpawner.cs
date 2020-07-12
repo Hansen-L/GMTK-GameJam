@@ -16,8 +16,8 @@ public class LightningSpawner : MonoBehaviour
 		GameObject boundaryObj = GameObject.Find("Boundaries");
 		BoundaryNumbers boundary = boundaryObj.GetComponent<BoundaryNumbers>();
 
-		boundary_x = boundary.playerBoundary_x - 3;
-		boundary_y = boundary.playerBoundary_y - 2;
+		boundary_x = boundary.playerBoundary_x - 2;
+		boundary_y = boundary.playerBoundary_y;
 
 		StartCoroutine(SpawnLightning());
 	}
@@ -28,7 +28,7 @@ public class LightningSpawner : MonoBehaviour
 		{
 			yield return new WaitForSeconds(spawnPeriod);
 
-			Vector2 spawnPosition = new Vector2(Random.Range(-boundary_x, boundary_x), Random.Range(-boundary_y, boundary_y)); // Choose random position in our designated box
+			Vector2 spawnPosition = new Vector2(Random.Range(-boundary_x, boundary_x), Random.Range(-boundary_y + 7, boundary_y + 5)); // Choose random position in our designated box
 			GameObject lightningInstance = Instantiate(lightningPrefab, spawnPosition, Quaternion.identity);
 			Destroy(lightningInstance, 10f);
 		}

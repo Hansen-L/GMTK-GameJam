@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPeriod: 3
-  lightningPrefab: {fileID: 0}
+  lightningPrefab: {fileID: 4080994924468599986, guid: 5a30fa8b26e13d24089ea01a9554d93f,
+    type: 3}
