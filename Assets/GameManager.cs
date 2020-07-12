@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     void Start() 
     {
         sheepPrecentHUD = GameObject.Find("Percent").GetComponent<SheepPercentHUD>();
-        timer = 60;
+        timer = 30;
         stage = 0;
     }
 
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
          	timer -= Time.deltaTime;   
         	if (timer < 0){
                 stage +=1;
-                timer = 60;
+                timer = 30;
                 if (stage == 1){
             		GameObject stageComplete = Instantiate(stageCompletePrefab, new Vector3(0, 0), Quaternion.identity);
                     Time.timeScale = 0;
