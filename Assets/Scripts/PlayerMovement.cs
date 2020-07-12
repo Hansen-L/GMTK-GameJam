@@ -39,8 +39,11 @@ public class PlayerMovement : MonoBehaviour
 	private Animator animator;
 	private SpriteRenderer dogRenderer;
 
+    private GameObject audioManagerObj;
+    private AudioManager audioManager;
 
-	void Start()
+
+    void Start()
 	{
 		body = GetComponent<Rigidbody2D>();
 		characterScale = transform.localScale;
@@ -54,7 +57,10 @@ public class PlayerMovement : MonoBehaviour
 		animator = this.GetComponent<Animator>();
 		dogRenderer = this.GetComponent<SpriteRenderer>();
 		baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
-	}
+
+        audioManagerObj = GameObject.Find("Audio Manager");
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
+    }
 
 	void Update()
 	{
@@ -130,9 +136,22 @@ public class PlayerMovement : MonoBehaviour
 
 	void AnimateDog()
 	{
-		// If player is moving
-		if (horizontal != 0 || vertical != 0) { animator.SetBool("isMoving", true); }
-		else { animator.SetBool("isMoving", false); }
+        // If player is moving
+        if (horizontal != 0 || vertical != 0)
+        {
+            if (!animator.GetBool("isMoving"))
+            {
+                audioManager.Play("run");
+            }
+            animator.SetBool("isMoving", true);
+        }
+		else {
+            if (animator.GetBool("isMoving"))
+            {
+                audioManager.Stop("run");
+            }
+            animator.SetBool("isMoving", false);
+        }
 
 		if (dashing)
 		{ animator.SetBool("dashing", true); }
@@ -151,7 +170,8 @@ public class PlayerMovement : MonoBehaviour
 		dashing = true;
 		dash_direction =  body.velocity;
 		dash_direction.Normalize();
-	}
+        audioManager.PlayOneShot("dash");
+    }
 
 	void Dash_end()
 	{

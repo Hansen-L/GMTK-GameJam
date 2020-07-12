@@ -148,7 +148,7 @@ public class SheepController : MonoBehaviour
     {
         if (Random.value < beehChance)
         {
-            audioManager.Play("sheep" + (Random.Range(0, beehNb) + 1));
+            audioManager.PlayOneShot("sheep" + (Random.Range(0, beehNb) + 1));
         }
     }
 
