@@ -8,11 +8,13 @@ public class ContinueScript : MonoBehaviour
 	public GameObject animalSpawner;
 	public GameObject lightningSpawner;
     public GameObject shadowDogPrefab;
+    public GameManager gameManager;
 
 	private void Awake()
 	{
         animalSpawner = GameObject.Find("Animal Spawner");
         lightningSpawner = GameObject.Find("Lightning Spawner");
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 	}
 
 	public void Continue()
@@ -48,12 +50,15 @@ public class ContinueScript : MonoBehaviour
         }
 
         Time.timeScale = 1;
+        // spawn sheep logic
+
+        //if normal size sheep
         if (GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().bigger == false && GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().smaller == false){
-            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(10);
-        } else if (GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().bigger == true){
-            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(1);
-        } else {
-            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(20);
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(10 * gameManager.stage);
+        } else if (GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().bigger == true){ // bigger sheep
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(1 * gameManager.stage);
+        } else { // smaller sheep?
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(20 * gameManager.stage);
         }
         animalSpawner.GetComponent<SheepSpawner>().MakeSheepCalm();
         animalSpawner.GetComponent<WolfSpawner>().KillAllWolves();

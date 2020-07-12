@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63da8e69671778944859594c51bb3be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPercent: 110
+  gameOverPercent: 86
   sheepPrecentHUD: {fileID: 0}
   gameOverPrefab: {fileID: 8219925913759740596, guid: 49a7fe1caeb05f94b87f27646c677722,
     type: 3}
