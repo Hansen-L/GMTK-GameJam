@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool dash_jump; 
 	public bool more_bork;
 	public bool reverse_bork;
+	public bool bigger_bork;
 
 	Vector3 characterScale;
 
@@ -216,6 +217,9 @@ public class PlayerMovement : MonoBehaviour
 		}
 		if (reverse_bork == true){
 			barkInstance.GetComponent<BarkCollider>().velocity = -20;
+		}
+		if (bigger_bork == true){
+			barkInstance.GetComponent<BarkCollider>().transform.localScale = new Vector2(20, 20);
 		}
 		barkInstance.GetComponent<BarkCollider>().getPos(this.transform.position);
 		Destroy(barkInstance, 0.1f);
