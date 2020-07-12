@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Utils;
+using System.Collections;
 
 public class SheepController : MonoBehaviour 
 {
@@ -121,7 +122,7 @@ public class SheepController : MonoBehaviour
             }
         }
 
-        Beeh();
+        StartCoroutine(Beeh());
         AnimateSheep();
         Utils.Utils.SetRenderLayer(gameObject, baseLayer);
     }
@@ -148,8 +149,9 @@ public class SheepController : MonoBehaviour
         }
     }
 
-    void Beeh()
+    public IEnumerator Beeh()
     {
+        yield return new WaitForSeconds(Random.Range(0f, 0.4f));
         if (Random.value < beehChance)
         {
             audioManager.PlayOneShot("sheep" + (Random.Range(0, beehNb) + 1), true);
