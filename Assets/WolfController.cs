@@ -7,17 +7,21 @@ public class WolfController : MonoBehaviour
 	
 	Vector2 direction;
 	public float velocity;
+	public Animator animator;
 
 	private Rigidbody2D wolfRb;
 	private SpriteRenderer wolfRenderer;
 	private SheepSpawner sheepSpawner;
 	private int baseLayer;
+	private bool isDead;
 
 	void Start() 
 	{
 		wolfRb = this.GetComponent<Rigidbody2D>();
 		wolfRenderer = this.GetComponent<SpriteRenderer>();
 		baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
+
+		animator = this.GetComponent<Animator>();
 
 		sheepSpawner = GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>();
 	}
@@ -53,24 +57,30 @@ public class WolfController : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		GameObject closestSheep = GetClosestSheep();
-
-		if (closestSheep) // if there exists a non-panicked sheep
+		if (!isDead)
 		{
-			Vector2 newdirection = closestSheep.transform.position - this.transform.position;
-			newdirection.Normalize();
+			GameObject closestSheep = GetClosestSheep();
 
-			direction.x = Mathf.Lerp(direction.x, newdirection.x, 2 * Time.fixedDeltaTime);
-			direction.y = Mathf.Lerp(direction.y, newdirection.y, 2 * Time.fixedDeltaTime);
+			if (closestSheep) // if there exists a non-panicked sheep
+			{
+				Vector2 newdirection = closestSheep.transform.position - this.transform.position;
+				newdirection.Normalize();
 
-			wolfRb.velocity = direction * velocity;
+				direction.x = Mathf.Lerp(direction.x, newdirection.x, 2 * Time.fixedDeltaTime);
+				direction.y = Mathf.Lerp(direction.y, newdirection.y, 2 * Time.fixedDeltaTime);
+
+				wolfRb.velocity = direction * velocity;
+			}
 		}
 	}
 
 	public void Die()
 	{ // add death effect/smoke here
-		wolfRenderer.enabled = false;
-		Destroy(gameObject);
+		isDead = true; // stop movement
+		wolfRb.velocity = new Vector2(0, 0);
+		animator.SetBool("isDead", true);
+		GetComponent<BoxCollider2D>().enabled = false; // disable collisions
+		Destroy(gameObject, 3f);
 	}
 
 	GameObject GetClosestSheep() 
