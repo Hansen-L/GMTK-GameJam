@@ -7,6 +7,7 @@ public class ContinueScript : MonoBehaviour
 
 	public GameObject animalSpawner;
 	public GameObject lightningSpawner;
+    public GameObject shadowDogPrefab;
 
 	private void Awake()
 	{
@@ -38,7 +39,7 @@ public class ContinueScript : MonoBehaviour
             GameObject.Find("Doggo").GetComponent<PlayerMovement>().bigger_bork = true;
         }
         if (GetComponent<TextMeshProUGUI>().text == "SHADOW DOG"){
-
+            GameObject shadowDog = Instantiate(shadowDogPrefab, GameObject.Find("Doggo").transform.position, Quaternion.identity);
         }
         if (GetComponent<TextMeshProUGUI>().text == "MEGA SHEEP"){
             GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().MakeSheepSmall();

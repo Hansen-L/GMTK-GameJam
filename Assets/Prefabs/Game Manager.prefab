@@ -43,10 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63da8e69671778944859594c51bb3be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPercent: 80
+  gameOverPercent: 110
   sheepPrecentHUD: {fileID: 0}
   gameOverPrefab: {fileID: 8219925913759740596, guid: 49a7fe1caeb05f94b87f27646c677722,
     type: 3}
   stageCompletePrefab: {fileID: 8219925913759740596, guid: 7cd549ff74efe1940a22371a427ddb71,
     type: 3}
+  stage2CompletePrefab: {fileID: 8219925913759740596, guid: 6cba5ba56e589aa48913269288641320,
+    type: 3}
+  stage3CompletePrefab: {fileID: 8219925913759740596, guid: 26e10d5a6df77754c8cc55277ef28657,
+    type: 3}
+  stage4CompletePrefab: {fileID: 8219925913759740596, guid: abb2479c0f4713349920be5b8d08dfde,
+    type: 3}
+  endgamePrefab: {fileID: 8219925913759740596, guid: 8334fe2104e38454fa14987d1bc71b7c,
+    type: 3}
   stage: 0
+  gaming: 0
+  timer: 0

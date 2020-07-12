@@ -226,6 +226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalSpawner: {fileID: 0}
   lightningSpawner: {fileID: 0}
+  shadowDogPrefab: {fileID: 2990881950319369613, guid: fb0fbb8be9935694fb89f1e6a11d9804,
+    type: 3}
 --- !u!1 &4583615883991734481
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +684,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalSpawner: {fileID: 0}
   lightningSpawner: {fileID: 0}
+  shadowDogPrefab: {fileID: 2990881950319369613, guid: fb0fbb8be9935694fb89f1e6a11d9804,
+    type: 3}
 --- !u!1 &5028756191210775660
 GameObject:
   m_ObjectHideFlags: 0
