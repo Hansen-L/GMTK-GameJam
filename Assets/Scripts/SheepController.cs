@@ -16,7 +16,7 @@ public class SheepController : MonoBehaviour
     private float beehChance = 0.02f / 60f;
     private int beehNb = 4;
 
-    private float timeLeft = 2f; // tracking time before direction switches
+    private float timeLeft = 0f; // tracking time before direction switches
     private Vector2 movementDir;
     private Vector2 prevDir = new Vector2(1f, 0.1f);
     private Rigidbody2D sheepRb;
@@ -162,6 +162,16 @@ public class SheepController : MonoBehaviour
         else
         {
             animator.SetBool("isPanicked", false);
+        }
+
+        // Animate eating grass
+        if (pauseFrameCount == pauseMovementFrames)
+        {
+            animator.SetBool("isEating", true);
+        }
+        else
+        {
+            animator.SetBool("isEating", false);
         }
 
         // Animate based on movement
