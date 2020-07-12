@@ -9,6 +9,7 @@ public class SheepSpawner : MonoBehaviour
     public float spawnRange_y = 4f;
     public float spawnPeriod = 4.3f; // Time between spawns
     public GameObject sheepPrefab;
+    public bool smaller;
 
 	public List<GameObject> sheepList = new List<GameObject>(); // Store all the spawned sheep. Sheep never die
 	public List<GameObject> panickedSheepList = new List<GameObject>();
@@ -54,6 +55,9 @@ public class SheepSpawner : MonoBehaviour
 		{
 			Vector2 spawnPosition = new Vector2(Random.Range(-spawnRange_x, spawnRange_x), Random.Range(-spawnRange_y, spawnRange_y)); // Choose random position in our designated box
 			GameObject newSheep = Instantiate(sheepPrefab, spawnPosition, Quaternion.identity);
+			if (smaller == true){
+				newSheep.transform.localScale = new Vector2 (2f,2f);
+			}
 			sheepList.Add(newSheep);
 		}
 	}
@@ -63,5 +67,14 @@ public class SheepSpawner : MonoBehaviour
 		foreach (GameObject sheep in panickedSheepList){
 			sheep.GetComponent<SheepController>().UnpanicSheep();
 		}
+	}
+
+	public void MakeSheepSmall() // Can be called from other functions
+	{
+		GameObject[] sheepList = GameObject.FindGameObjectsWithTag("Sheep");
+		foreach (GameObject sheep in sheepList){
+			sheep.GetComponent<SheepController>().Die();
+		}
+		
 	}
 }

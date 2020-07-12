@@ -23,10 +23,18 @@ public class ContinueScript : MonoBehaviour
         if (GetComponent<TextMeshProUGUI>().text == "DASH STOMP"){
             GameObject.Find("Doggo").GetComponent<PlayerMovement>().dash_jump = true;
         }
-        if (GetComponent<TextMeshProUGUI>().text == "+ BORK STRENGH"){
+        if (GetComponent<TextMeshProUGUI>().text == "+ BORK STRENGTH"){
             GameObject.Find("Doggo").GetComponent<PlayerMovement>().more_bork = true;
         }
         if (GetComponent<TextMeshProUGUI>().text == "MAGNETIC BORK"){
+            GameObject.Find("Doggo").GetComponent<PlayerMovement>().reverse_bork = true;
+        }
+        if (GetComponent<TextMeshProUGUI>().text == "SMALLER SHEEP"){
+            GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().smaller = true;
+            GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().MakeSheepSmall();
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(20);
+        }
+        if (GetComponent<TextMeshProUGUI>().text == "SMALLER WEATHER"){
             GameObject.Find("Doggo").GetComponent<PlayerMovement>().reverse_bork = true;
         }
 
