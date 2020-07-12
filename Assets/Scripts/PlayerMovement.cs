@@ -80,9 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0)) {
 			barking = true;
-			if (dashing == false && stunned == false){
-				Bark();
-			}
+			Bark();
 			
 		}
 
@@ -190,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
 		body.velocity = new Vector2(0,0);
 		stun_time = dash_end_stun;
 		Stun_start();
-		if (dash_attack == true){ 
+		if (true){ 
 			// Spawn collider to push back sheep
 			StartCoroutine(screenShake.Shake(0.1f, 0.1f));
 			GameObject dashJumpColliderInstance = Instantiate(dashJumpCollider, this.transform.position, Quaternion.identity);
