@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
 	bool stunned;
 	bool barking;
 	bool dash_attack = false;
+	public bool dash_jump; 
+	public bool more_bork;
+	public bool reverse_bork;
 
 	Vector3 characterScale;
 
@@ -62,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
 
         audioManagerObj = GameObject.Find("Audio Manager");
         audioManager = audioManagerObj.GetComponent<AudioManager>();
+
+        dash_jump = false;
     }
 
 	void Update()
@@ -188,7 +193,7 @@ public class PlayerMovement : MonoBehaviour
 		body.velocity = new Vector2(0,0);
 		stun_time = dash_end_stun;
 		Stun_start();
-		if (true){ 
+		if (dash_jump == true){ 
 			// Spawn collider to push back sheep
 			StartCoroutine(screenShake.Shake(0.1f, 0.1f));
 			GameObject dashJumpColliderInstance = Instantiate(dashJumpCollider, this.transform.position, Quaternion.identity);
@@ -206,6 +211,12 @@ public class PlayerMovement : MonoBehaviour
 		mouseDir.Normalize();
 		Vector2 position =  new Vector2(this.transform.position.x,this.transform.position.y)  + mouseDir * 2;
 		GameObject barkInstance = Instantiate(barkCollider, position, Quaternion.identity);
+		if (more_bork == true){
+			barkInstance.GetComponent<BarkCollider>().velocity = 40;
+		}
+		if (reverse_bork == true){
+			barkInstance.GetComponent<BarkCollider>().velocity = -20;
+		}
 		barkInstance.GetComponent<BarkCollider>().getPos(this.transform.position);
 		Destroy(barkInstance, 0.1f);
 

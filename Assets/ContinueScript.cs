@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ContinueScript : MonoBehaviour
@@ -15,6 +16,20 @@ public class ContinueScript : MonoBehaviour
 
 	public void Continue()
     {
+
+        if (GetComponent<TextMeshProUGUI>().text == "+SPEED"){
+            GameObject.Find("Doggo").GetComponent<PlayerMovement>().max_speed = 15;
+        }
+        if (GetComponent<TextMeshProUGUI>().text == "DASH STOMP"){
+            GameObject.Find("Doggo").GetComponent<PlayerMovement>().dash_jump = true;
+        }
+        if (GetComponent<TextMeshProUGUI>().text == "+ BORK STRENGH"){
+            GameObject.Find("Doggo").GetComponent<PlayerMovement>().more_bork = true;
+        }
+        if (GetComponent<TextMeshProUGUI>().text == "MAGNETIC BORK"){
+            GameObject.Find("Doggo").GetComponent<PlayerMovement>().reverse_bork = true;
+        }
+
         Time.timeScale = 1;
         animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(10);
         animalSpawner.GetComponent<SheepSpawner>().MakeSheepCalm();

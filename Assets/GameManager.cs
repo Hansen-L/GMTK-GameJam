@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
     public SheepPercentHUD sheepPrecentHUD;
     public GameObject gameOverPrefab;
     public GameObject stageCompletePrefab;
+    public GameObject stage2CompletePrefab;
+    public GameObject stage3CompletePrefab;
+    public GameObject stage4CompletePrefab;
     public GameObject endgamePrefab;
     public int stage;
     public bool gaming;
@@ -16,7 +19,7 @@ public class GameManager : MonoBehaviour
     void Start() 
     {
         sheepPrecentHUD = GameObject.Find("Percent").GetComponent<SheepPercentHUD>();
-        timer = 60;
+        timer = 10;
         stage = 0;
     }
 
@@ -39,9 +42,21 @@ public class GameManager : MonoBehaviour
          	timer -= Time.deltaTime;   
         	if (timer < 0){
                 stage +=1;
-                timer = 60;
-                if (stage < 5){
+                timer = 10;
+                if (stage == 1){
             		GameObject stageComplete = Instantiate(stageCompletePrefab, new Vector3(0, 0), Quaternion.identity);
+                    Time.timeScale = 0;
+                }
+                if (stage == 2){
+                    GameObject stageComplete = Instantiate(stage2CompletePrefab, new Vector3(0, 0), Quaternion.identity);
+                    Time.timeScale = 0;
+                }
+                if (stage == 3){
+                    GameObject stageComplete = Instantiate(stage3CompletePrefab, new Vector3(0, 0), Quaternion.identity);
+                    Time.timeScale = 0;
+                }
+                if (stage == 4){
+                    GameObject stageComplete = Instantiate(stage4CompletePrefab, new Vector3(0, 0), Quaternion.identity);
                     Time.timeScale = 0;
                 }
                 if (stage >= 5){
