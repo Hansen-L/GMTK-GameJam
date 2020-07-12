@@ -21,6 +21,14 @@ public class LightningSpawner : MonoBehaviour
 
 		StartCoroutine(SpawnLightning());
 	}
+	
+	void Update()
+	{
+		GameObject gameManager;
+		gameManager = GameObject.Find("Game Manager");
+		spawnPeriod = gameManager.GetComponent<GameManager>().timer/6+1;
+		
+	}
 
 	public IEnumerator SpawnLightning()
 	{

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public SheepPercentHUD sheepPrecentHUD;
     public GameObject gameOverPrefab;
     public GameObject stageCompletePrefab;
+    public GameObject endgamePrefab;
     public int stage;
     public bool gaming;
 
@@ -33,14 +34,21 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && gaming == false) {
             startGame();
         }
-        if (gaming == true){
+        if (gaming == true && gameEnded == false){
 
          	timer -= Time.deltaTime;   
         	if (timer < 0){
-        		GameObject stageComplete = Instantiate(stageCompletePrefab, new Vector3(0, 0), Quaternion.identity);
-        		stage +=1;
-        		timer = 60;
-        		Time.timeScale = 0;
+                stage +=1;
+                timer = 60;
+                if (stage < 5){
+            		GameObject stageComplete = Instantiate(stageCompletePrefab, new Vector3(0, 0), Quaternion.identity);
+                    Time.timeScale = 0;
+                }
+                if (stage >= 5){
+                    GameObject stageComplete = Instantiate(endgamePrefab, new Vector3(0, 0), Quaternion.identity);
+                    Time.timeScale = 0;
+                }
+        		
         	}
 
 
