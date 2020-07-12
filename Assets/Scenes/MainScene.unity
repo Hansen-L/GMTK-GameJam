@@ -1901,11 +1901,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6078754655243157384, guid: 89549e8f6c97a7a4d880a2d833a28dbb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6078754655243157388, guid: 89549e8f6c97a7a4d880a2d833a28dbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2016,20 +2011,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6799691642126002439, guid: 89549e8f6c97a7a4d880a2d833a28dbb,
+    - target: {fileID: 7294086929098274019, guid: 89549e8f6c97a7a4d880a2d833a28dbb,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 178.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6799691642126002439, guid: 89549e8f6c97a7a4d880a2d833a28dbb,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6799691642126002439, guid: 89549e8f6c97a7a4d880a2d833a28dbb,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3
+      propertyPath: m_Color.a
+      value: 0.42745098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89549e8f6c97a7a4d880a2d833a28dbb, type: 3}
