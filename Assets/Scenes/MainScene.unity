@@ -1313,29 +1313,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
         type: 3}
-      propertyPath: sounds.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
-        type: 3}
-      propertyPath: sounds.Array.data[10].name
-      value: tick
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
-        type: 3}
-      propertyPath: sounds.Array.data[10].clip
+      propertyPath: sounds.Array.data[11].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 127aefb1d79c720448afcc469336b571, type: 3}
-    - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
-        type: 3}
-      propertyPath: sounds.Array.data[10].volume
-      value: 0.789
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
-        type: 3}
-      propertyPath: sounds.Array.data[10].pitch
-      value: 1.49
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 79402216cbd87104cb1c2bb4526fe8d1, type: 3}
     - target: {fileID: 4081911822070918085, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
         type: 3}
       propertyPath: m_Name
@@ -1501,11 +1481,6 @@ PrefabInstance:
       propertyPath: screenShake
       value: 
       objectReference: {fileID: 424173951}
-    - target: {fileID: 24546750019598947, guid: 20ba07ad2d9d3904595964d5cb828676,
-        type: 3}
-      propertyPath: max_speed
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 24546750019598951, guid: 20ba07ad2d9d3904595964d5cb828676,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1566,10 +1541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doggo
       objectReference: {fileID: 0}
-    - target: {fileID: 4294682874480546036, guid: 20ba07ad2d9d3904595964d5cb828676,
+    - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ba07ad2d9d3904595964d5cb828676, type: 3}
@@ -1584,16 +1559,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307093413015746238, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
-        type: 3}
-      propertyPath: stage
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307093413015746238, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
-        type: 3}
-      propertyPath: gameOverPercent
-      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 1307093413015746239, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
         type: 3}
@@ -1807,6 +1772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892564390019546678, guid: 6ba4fcb68b35ef74ebe2a3e3888c178d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ba4fcb68b35ef74ebe2a3e3888c178d, type: 3}
@@ -2203,6 +2173,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650955712507125325, guid: 78714932db2fe03478445f4a478e7f69,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.9299316
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650955712507125325, guid: 78714932db2fe03478445f4a478e7f69,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -175.83002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78714932db2fe03478445f4a478e7f69, type: 3}

@@ -104,3 +104,15 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: tick
+    clip: {fileID: 8300000, guid: 127aefb1d79c720448afcc469336b571, type: 3}
+    volume: 0.789
+    pitch: 1.49
+    source: {fileID: 0}
+    loop: 0
+  - name: tada
+    clip: {fileID: 8300000, guid: bc573ca099906194f9a2b911a0e13017, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0

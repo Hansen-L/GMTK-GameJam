@@ -68,7 +68,7 @@ public class SheepSpawner : MonoBehaviour
 
 	public void MakeSheepCalm() // Can be called from other functions
 	{
-		foreach (GameObject sheep in panickedSheepList){
+		foreach (GameObject sheep in GameObject.FindGameObjectsWithTag("Sheep")){
 			sheep.GetComponent<SheepController>().UnpanicSheep();
 		}
 	}
