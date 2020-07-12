@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     {
         sheepPrecentHUD = GameObject.Find("Percent").GetComponent<SheepPercentHUD>();
         timer = 60;
-        stage = 1;
+        stage = 0;
     }
 
 
