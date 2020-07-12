@@ -1636,7 +1636,7 @@ PrefabInstance:
     - target: {fileID: 1307093413015746238, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
         type: 3}
       propertyPath: gameOverPercent
-      value: 80
+      value: 86
       objectReference: {fileID: 0}
     - target: {fileID: 1307093413015746239, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
         type: 3}
@@ -2220,36 +2220,6 @@ PrefabInstance:
     - target: {fileID: 6650955711014781238, guid: 78714932db2fe03478445f4a478e7f69,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712507125322, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_text
-      value: Press Space to Start
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712507125322, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712507125322, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712507125322, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712507125325, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -175
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712507125325, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
