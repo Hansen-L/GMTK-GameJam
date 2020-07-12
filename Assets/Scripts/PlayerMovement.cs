@@ -210,7 +210,6 @@ public class PlayerMovement : MonoBehaviour
 		Destroy(barkInstance, 0.1f);
 
 		float angleToCamera = Mathf.Atan2(mouseDir.x, mouseDir.y) * Mathf.Rad2Deg - 90f;
-		Debug.Log(angleToCamera);
 
 		// Spawn bark effect
 		float offsetX = 0.3f;
