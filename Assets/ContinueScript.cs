@@ -30,7 +30,7 @@ public class ContinueScript : MonoBehaviour
         if (GetComponent<TextMeshProUGUI>().text == "MAGNETIC BORK"){
             GameObject.Find("Doggo").GetComponent<PlayerMovement>().reverse_bork = true;
         }
-        if (GetComponent<TextMeshProUGUI>().text == "SMALLER SHEEP"){
+        if (GetComponent<TextMeshProUGUI>().text == "SMALLER SHEEPS"){
             GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().smaller = true;
             GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().MakeSheepSmall();
             animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(20);
@@ -41,13 +41,17 @@ public class ContinueScript : MonoBehaviour
         if (GetComponent<TextMeshProUGUI>().text == "SHADOW DOG"){
             GameObject shadowDog = Instantiate(shadowDogPrefab, GameObject.Find("Doggo").transform.position, Quaternion.identity);
         }
-        if (GetComponent<TextMeshProUGUI>().text == "MEGA SHEEP"){
+        if (GetComponent<TextMeshProUGUI>().text == "MEGA SHEEPS"){
+            GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().bigger = true;
             GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().MakeSheepSmall();
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(4);
         }
 
         Time.timeScale = 1;
-        if (GetComponent<TextMeshProUGUI>().text != "MEGA SHEEP"){
+        if (GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().bigger == false){
             animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(10);
+        } else {
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(1);
         }
         animalSpawner.GetComponent<SheepSpawner>().MakeSheepCalm();
         animalSpawner.GetComponent<WolfSpawner>().KillAllWolves();

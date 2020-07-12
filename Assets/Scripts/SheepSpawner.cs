@@ -10,6 +10,7 @@ public class SheepSpawner : MonoBehaviour
     public float spawnPeriod = 4.3f; // Time between spawns
     public GameObject sheepPrefab;
     public bool smaller;
+    public bool bigger;
 
 	public List<GameObject> sheepList = new List<GameObject>(); // Store all the spawned sheep. Sheep never die
 	public List<GameObject> panickedSheepList = new List<GameObject>();
@@ -57,6 +58,9 @@ public class SheepSpawner : MonoBehaviour
 			GameObject newSheep = Instantiate(sheepPrefab, spawnPosition, Quaternion.identity);
 			if (smaller == true){
 				newSheep.transform.localScale = new Vector2 (2f,2f);
+			}
+			if (bigger == true){
+				newSheep.transform.localScale = new Vector2 (16f,16f);
 			}
 			sheepList.Add(newSheep);
 		}
