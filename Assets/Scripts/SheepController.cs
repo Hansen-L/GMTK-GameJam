@@ -211,7 +211,7 @@ public class SheepController : MonoBehaviour
 
     public void Die()
     { // add death effect/smoke here
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 0.1f);
     }
 
     public void Stunned()
