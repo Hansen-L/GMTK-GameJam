@@ -69,11 +69,15 @@ public class SheepSpawner : MonoBehaviour
 		}
 	}
 
-	public void MakeSheepSmall() // Can be called from other functions
+	public void MakeSheepSmall() // Can be called from other functions (kills all sheep)
 	{
-		GameObject[] sheepList = GameObject.FindGameObjectsWithTag("Sheep");
-		foreach (GameObject sheep in sheepList){
-			sheep.GetComponent<SheepController>().Die();
+		sheepList = new List<GameObject>(); // reset sheep lists
+		panickedSheepList = new List<GameObject>();
+		calmSheepList = new List<GameObject>();
+
+		GameObject[] sheepArr = GameObject.FindGameObjectsWithTag("Sheep");
+		foreach (GameObject sheep in sheepArr){
+			if (sheep != null) { sheep.GetComponent<SheepController>().Die(); }
 		}
 		
 	}
