@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 	bool stunned;
 	bool barking;
 	bool dash_attack = false;
-	public bool dash_jump; 
+	public bool dash_jump;
 	public bool more_bork;
 	public bool reverse_bork;
 
@@ -37,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject dashEndEffect;
 	public GameObject barkEffect;
 
+	public bool isShadow = false;
+	public float shadowDelay = 2f;
+
 	private float boundary_x;
 	private float boundary_y;
 	private int baseLayer;
@@ -44,11 +47,11 @@ public class PlayerMovement : MonoBehaviour
 	private Animator animator;
 	private SpriteRenderer dogRenderer;
 
-    private GameObject audioManagerObj;
-    private AudioManager audioManager;
+	private GameObject audioManagerObj;
+	private AudioManager audioManager;
 
 
-    void Start()
+	void Start()
 	{
 		body = GetComponent<Rigidbody2D>();
 		characterScale = transform.localScale;
@@ -63,11 +66,11 @@ public class PlayerMovement : MonoBehaviour
 		dogRenderer = this.GetComponent<SpriteRenderer>();
 		baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
 
-        audioManagerObj = GameObject.Find("Audio Manager");
-        audioManager = audioManagerObj.GetComponent<AudioManager>();
+		audioManagerObj = GameObject.Find("Audio Manager");
+		audioManager = audioManagerObj.GetComponent<AudioManager>();
 
-        dash_jump = false;
-    }
+		dash_jump = false;
+	}
 
 	void Update()
 	{
@@ -75,18 +78,27 @@ public class PlayerMovement : MonoBehaviour
 		animator.SetBool("barking", false);
 		animator.SetBool("dashing", false);
 
-		// Gives a value between -1 and 1
-		horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
-		vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+		if (!isShadow) // regular dog
+		{
+			// Gives a value between -1 and 1
+			horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
+			vertical = Input.GetAxisRaw("Vertical"); // -1 is down
 
-		if (Input.GetKeyDown("space")) {
-			Dash_start();
+			if (Input.GetKeyDown("space"))
+			{
+				Dash_start();
+			}
+
+			if (Input.GetMouseButtonDown(0))
+			{
+				barking = true;
+				Bark();
+
+			}
 		}
-
-		if (Input.GetMouseButtonDown(0)) {
-			barking = true;
-			Bark();
-			
+		else
+		{
+			StartCoroutine(ShadowInput());
 		}
 
 		Vector2 position;
@@ -100,6 +112,48 @@ public class PlayerMovement : MonoBehaviour
 
 		Utils.Utils.SetRenderLayer(gameObject, baseLayer);
 	}
+
+	public IEnumerator ShadowInput()
+	{
+		// Gives a value between -1 and 1
+		float temp_horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
+		float temp_vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+
+		StartCoroutine(ShadowMovement(temp_horizontal, temp_vertical));
+
+		if (Input.GetKeyDown("space"))
+		{
+			StartCoroutine(ShadowDash());
+		}
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			StartCoroutine(ShadowBark());
+		}
+
+		yield return null;
+	}
+
+	public IEnumerator ShadowMovement(float temp_horizontal, float temp_vertical)
+	{
+		yield return new WaitForSeconds(shadowDelay);
+		horizontal = temp_horizontal;
+		vertical = temp_vertical;
+	}
+
+	public IEnumerator ShadowBark()
+	{
+		yield return new WaitForSeconds(shadowDelay);
+		barking = true;
+		Bark();
+	}
+
+	public IEnumerator ShadowDash()
+	{
+		yield return new WaitForSeconds(shadowDelay);
+		Dash_start();
+	}
+
 	void FixedUpdate()
 	{
 		if (stunned == true) {
