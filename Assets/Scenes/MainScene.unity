@@ -1262,7 +1262,7 @@ PrefabInstance:
     - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
         type: 3}
       propertyPath: sounds.Array.data[5].volume
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
         type: 3}
@@ -1636,7 +1636,7 @@ PrefabInstance:
     - target: {fileID: 1307093413015746238, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
         type: 3}
       propertyPath: gameOverPercent
-      value: 86
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 1307093413015746239, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
         type: 3}
