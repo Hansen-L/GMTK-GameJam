@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 	bool dashing;
 	bool stunned;
 	bool barking;
+	bool dash_attack = false;
 
 	Vector3 characterScale;
 
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject dashJumpCollider;
 	public GameObject barkCollider;
 	public GameObject dashEndEffect;
+	public GameObject barkEffect;
 
 	private float boundary_x;
 	private float boundary_y;
@@ -78,7 +80,10 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0)) {
 			barking = true;
-			Bark();
+			if (dashing == false && stunned == false){
+				Bark();
+			}
+			
 		}
 
 		Vector2 position;
@@ -103,20 +108,23 @@ public class PlayerMovement : MonoBehaviour
 
 		} else if (dashing == true) {
 
+			if (Input.GetMouseButtonDown(0)){
+				dash_attack = true;
+			}
 
 			dash_timer += Time.fixedDeltaTime;
 			body.velocity = dash_speed * dash_direction;
 
-			if (dash_timer <= 0.2) {
-				body.velocity = new Vector2(0, 0);
-			}
+			//if (dash_timer <= 0.2) {
+			//	body.velocity = new Vector2(0, 0);
+			//}
 
 			if (dash_timer >= dash_time) {
 				Dash_end();
 			}
 
 		} else {
-
+			dash_attack = false;
 			if (horizontal * h_velocity <= 0) {
 				h_velocity *= friction;
 			}
@@ -169,6 +177,9 @@ public class PlayerMovement : MonoBehaviour
 		dash_timer = 0;
 		dashing = true;
 		dash_direction =  body.velocity;
+		if (dash_direction.magnitude < 0.001){
+			dash_direction = new Vector2(h_velocity, v_velocity);
+		}
 		dash_direction.Normalize();
         audioManager.PlayOneShot("dash");
     }
@@ -179,25 +190,50 @@ public class PlayerMovement : MonoBehaviour
 		body.velocity = new Vector2(0,0);
 		stun_time = dash_end_stun;
 		Stun_start();
-		StartCoroutine(screenShake.Shake(0.1f, 0.1f));
+		if (dash_attack == true){ 
+			// Spawn collider to push back sheep
+			StartCoroutine(screenShake.Shake(0.1f, 0.1f));
+			GameObject dashJumpColliderInstance = Instantiate(dashJumpCollider, this.transform.position, Quaternion.identity);
+			Destroy(dashJumpColliderInstance, 0.1f);
 
-		// Spawn collider to push back sheep
-		GameObject dashJumpColliderInstance = Instantiate(dashJumpCollider, this.transform.position, Quaternion.identity);
-		Destroy(dashJumpColliderInstance, 0.1f);
-
-		Vector2 effectPosition = new Vector2(this.transform.position.x, this.transform.position.y + 1.3f);
-		GameObject dashEndEffectInstance = Instantiate(dashEndEffect, effectPosition, Quaternion.identity);
-		Destroy(dashEndEffectInstance, 2f);
+			Vector2 effectPosition = new Vector2(this.transform.position.x, this.transform.position.y + 1.3f);
+			GameObject dashEndEffectInstance = Instantiate(dashEndEffect, effectPosition, Quaternion.identity);
+			Destroy(dashEndEffectInstance, 2f);
+		}
 	}
 
 	void Bark(){
 		Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		Vector2 direction = new Vector2 (mousePos.x - this.transform.position.x, mousePos.y - this.transform.position.y);
-		direction.Normalize();
-		Vector2 position =  new Vector2(this.transform.position.x,this.transform.position.y)  + direction * 2;
+		Vector2 mouseDir = new Vector2 (mousePos.x - this.transform.position.x, mousePos.y - this.transform.position.y);
+		mouseDir.Normalize();
+		Vector2 position =  new Vector2(this.transform.position.x,this.transform.position.y)  + mouseDir * 2;
 		GameObject barkInstance = Instantiate(barkCollider, position, Quaternion.identity);
 		barkInstance.GetComponent<BarkCollider>().getPos(this.transform.position);
 		Destroy(barkInstance, 0.1f);
+
+		float angleToCamera = Mathf.Atan2(mouseDir.x, mouseDir.y) * Mathf.Rad2Deg - 90f;
+		Debug.Log(angleToCamera);
+
+		// Spawn bark effect
+		float offsetX = 0.3f;
+		float offsetY = 0.12f;
+		Vector2 barkEffectPosition;
+		if (body.velocity.x < 0) //moving left, offset spawn position of bark effect
+		{
+			barkEffectPosition = new Vector2(this.transform.position.x - offsetX, this.transform.position.y + offsetY);
+			GameObject barkEffectInstance = Instantiate(barkEffect, barkEffectPosition, new Quaternion(0f, 0f, 0f, 1));
+			barkEffectInstance.transform.parent = gameObject.transform;
+			barkEffectInstance.transform.rotation = Quaternion.Euler(0f, 0f, -angleToCamera + 180f); // Don't ask me I have no clue...
+			Destroy(barkEffectInstance, 2f);
+		}
+		else
+		{
+			barkEffectPosition = new Vector2(this.transform.position.x + offsetX, this.transform.position.y + offsetY);
+			GameObject barkEffectInstance = Instantiate(barkEffect, barkEffectPosition, new Quaternion(0f, 180f, 0f, 1));
+			barkEffectInstance.transform.parent = gameObject.transform;
+			barkEffectInstance.transform.rotation = Quaternion.Euler(0f, 0f, -angleToCamera + 180f);
+			Destroy(barkEffectInstance, 2f);
+		}
 	}
 
 	void Stun_start()

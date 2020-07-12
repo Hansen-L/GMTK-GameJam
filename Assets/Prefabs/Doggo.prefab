@@ -148,15 +148,17 @@ MonoBehaviour:
   acceleration: 1
   max_speed: 10
   friction: 0.4
-  dash_speed: 40
-  dash_time: 0.3
-  dash_end_stun: 0.1
+  dash_speed: 30
+  dash_time: 0.15
+  dash_end_stun: 0.05
   screenShake: {fileID: 0}
   dashJumpCollider: {fileID: 2402875183927296318, guid: 720a85d304d28f44dbc58c8c34d1ca49,
     type: 3}
   barkCollider: {fileID: 2402875183927296318, guid: eb63dcc50ff6e3f428887720aaa60d4e,
     type: 3}
   dashEndEffect: {fileID: 6594737175139339036, guid: 878d6471e503a6643a2eef481daa0aee,
+    type: 3}
+  barkEffect: {fileID: 4042404542434258202, guid: 8021df1414633714cb24591341ab7981,
     type: 3}
 --- !u!95 &2084045640
 Animator:
