@@ -39,9 +39,9 @@ public class ScoreHUD : MonoBehaviour
         time = (int) gameManager.GetComponent<GameManager>().timer;
         timeText.text = time.ToString();
 
-        if (prevTime != time && time <= 10){
+        if (prevTime != time && time <= 10){ //time from 10 to 0
             StartCoroutine(IncreaseTimeAnim());
-            audioManager.PlayVolume("tick", 1f);
+            audioManager.PlayVolume("tick", 1f - (float)time/20f); //louder over time
         }
     }
 
