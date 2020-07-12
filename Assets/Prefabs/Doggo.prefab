@@ -147,8 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ed14937e445e64f90538a5a38e44af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dash_jump: 0
+  more_bork: 0
+  reverse_bork: 0
+  bigger_bork: 0
   acceleration: 1
-  max_speed: 10
+  max_speed: 7
   friction: 0.4
   dash_speed: 25
   dash_time: 0.15
@@ -162,6 +166,8 @@ MonoBehaviour:
     type: 3}
   barkEffect: {fileID: 4042404542434258202, guid: 8021df1414633714cb24591341ab7981,
     type: 3}
+  isShadow: 0
+  shadowDelay: 2
 --- !u!95 &2084045640
 Animator:
   serializedVersion: 3

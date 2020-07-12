@@ -19,7 +19,7 @@ public class ContinueScript : MonoBehaviour
     {
 
         if (GetComponent<TextMeshProUGUI>().text == "+SPEED"){
-            GameObject.Find("Doggo").GetComponent<PlayerMovement>().max_speed = 15;
+            GameObject.Find("Doggo").GetComponent<PlayerMovement>().max_speed = 10;
         }
         if (GetComponent<TextMeshProUGUI>().text == "DASH STOMP"){
             GameObject.Find("Doggo").GetComponent<PlayerMovement>().dash_jump = true;

@@ -152,7 +152,7 @@ MonoBehaviour:
   reverse_bork: 0
   bigger_bork: 0
   acceleration: 1
-  max_speed: 10
+  max_speed: 7
   friction: 0.4
   dash_speed: 25
   dash_time: 0.15
