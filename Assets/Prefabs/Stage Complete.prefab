@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 203, y: -106}
-  m_SizeDelta: {x: -663.3967, y: -378.752}
+  m_SizeDelta: {x: -607.1641, y: -407.9117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4802912454403069071
 CanvasRenderer:
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   lightningSpawner: {fileID: 0}
   shadowDogPrefab: {fileID: 2990881950319369613, guid: fb0fbb8be9935694fb89f1e6a11d9804,
     type: 3}
+  gameManager: {fileID: 0}
 --- !u!1 &4583615883991734481
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,8 +495,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199, y: -106}
-  m_SizeDelta: {x: -663.3967, y: -378.752}
+  m_AnchoredPosition: {x: -200, y: -106}
+  m_SizeDelta: {x: -692.5544, y: -407.90967}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4583615884827134923
 CanvasRenderer:
@@ -569,7 +570,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -686,6 +687,7 @@ MonoBehaviour:
   lightningSpawner: {fileID: 0}
   shadowDogPrefab: {fileID: 2990881950319369613, guid: fb0fbb8be9935694fb89f1e6a11d9804,
     type: 3}
+  gameManager: {fileID: 0}
 --- !u!1 &5028756191210775660
 GameObject:
   m_ObjectHideFlags: 0
