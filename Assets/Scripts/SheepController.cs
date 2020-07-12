@@ -47,6 +47,10 @@ public class SheepController : MonoBehaviour
 
         innerBoundary_x = boundary.playerBoundary_x - 6;
         innerBoundary_y = boundary.playerBoundary_y - 5;
+
+        // Start wandering on spawn
+        timeLeft = baseWanderingTime + Random.Range(-1f, 3f);
+        GenerateMovementDir();
     }
 
 	private void OnCollisionEnter2D(Collision2D collision) // collision refers to other object
