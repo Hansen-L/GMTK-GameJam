@@ -41,8 +41,11 @@ public class PlayerMovement : MonoBehaviour
 	private Animator animator;
 	private SpriteRenderer dogRenderer;
 
+    private GameObject audioManagerObj;
+    private AudioManager audioManager;
 
-	void Start()
+
+    void Start()
 	{
 		body = GetComponent<Rigidbody2D>();
 		characterScale = transform.localScale;
@@ -56,7 +59,10 @@ public class PlayerMovement : MonoBehaviour
 		animator = this.GetComponent<Animator>();
 		dogRenderer = this.GetComponent<SpriteRenderer>();
 		baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
-	}
+
+        audioManagerObj = GameObject.Find("Audio Manager");
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
+    }
 
 	void Update()
 	{
@@ -138,9 +144,22 @@ public class PlayerMovement : MonoBehaviour
 
 	void AnimateDog()
 	{
-		// If player is moving
-		if (horizontal != 0 || vertical != 0) { animator.SetBool("isMoving", true); }
-		else { animator.SetBool("isMoving", false); }
+        // If player is moving
+        if (horizontal != 0 || vertical != 0)
+        {
+            if (!animator.GetBool("isMoving"))
+            {
+                audioManager.Play("run");
+            }
+            animator.SetBool("isMoving", true);
+        }
+		else {
+            if (animator.GetBool("isMoving"))
+            {
+                audioManager.Stop("run");
+            }
+            animator.SetBool("isMoving", false);
+        }
 
 		if (dashing)
 		{ animator.SetBool("dashing", true); }
@@ -162,7 +181,8 @@ public class PlayerMovement : MonoBehaviour
 			dash_direction = new Vector2(h_velocity, v_velocity);
 		}
 		dash_direction.Normalize();
-	}
+        audioManager.PlayOneShot("dash");
+    }
 
 	void Dash_end()
 	{
@@ -213,8 +233,9 @@ public class PlayerMovement : MonoBehaviour
 			barkEffectInstance.transform.parent = gameObject.transform;
 			barkEffectInstance.transform.rotation = Quaternion.Euler(0f, 0f, -angleToCamera + 180f);
 			Destroy(barkEffectInstance, 2f);
-		}
-	}
+        }
+        audioManager.PlayOneShot("bark");
+    }
 
 	void Stun_start()
 	{
