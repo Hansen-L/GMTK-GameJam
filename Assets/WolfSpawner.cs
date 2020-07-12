@@ -72,7 +72,7 @@ public class WolfSpawner : MonoBehaviour
 	{
 		GameObject[] wolfList = GameObject.FindGameObjectsWithTag("Wolf");
 		foreach (GameObject wolf in wolfList){
-			wolf.GetComponent<WolfController>().Die();
+			wolf.GetComponent<WolfController>().Die(true); //don't play sounds on scene end
 		}
 	}
 }
