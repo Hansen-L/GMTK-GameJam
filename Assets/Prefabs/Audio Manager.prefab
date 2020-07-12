@@ -44,9 +44,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: sheep1
+    clip: {fileID: 8300000, guid: eef204f4b55cf8246a5fbcbcbceea8b0, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sheep2
+    clip: {fileID: 8300000, guid: 9e6017484d01a274d9daa2fa3ac9f28d, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sheep3
+    clip: {fileID: 8300000, guid: 0ba265925687a0c4d845bcd0c3ef32a0, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sheep4
+    clip: {fileID: 8300000, guid: ce888b9fcfda0cc458f55a01db7454b5, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
   - name: BGM
-    clip: {fileID: 8300000, guid: 31441c7d414f9204f9c64bf1adc41112, type: 3}
+    clip: {fileID: 8300000, guid: d3ba5572d7456a545b0052f1b4485aec, type: 3}
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 1
+  - name: bark
+    clip: {fileID: 8300000, guid: 83ed248623b93b64099b5be18f71c73b, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: dash
+    clip: {fileID: 8300000, guid: e3b7e5ba9ff89fe4a84b65b525eafcdc, type: 3}
+    volume: 0.8
+    pitch: 1.4
+    source: {fileID: 0}
+    loop: 0
+  - name: run
+    clip: {fileID: 8300000, guid: 361c4aa836b37ed40b43b736902e1b54, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: panic
+    clip: {fileID: 8300000, guid: d276dceb068c84b40b6af74407ccaa0d, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: wolfSmoke
+    clip: {fileID: 8300000, guid: 400e66387ae519047a3d9c8c46928422, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0

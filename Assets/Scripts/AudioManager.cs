@@ -47,6 +47,14 @@ public class AudioManager : MonoBehaviour
         else { s.source.Stop(); }
     }
 
+    public void PlayVolume(string name, float volume)
+    {
+        Sound s = Array.Find(this.sounds, sound => sound.name == name);
+
+        s.source.volume = volume;
+        s.source.Play();
+    }
+
     public void PlayOneShot(string name, bool randPitch = false)
     {
         Sound s = Array.Find(this.sounds, sound => sound.name == name);

@@ -8,34 +8,40 @@ public class ScoreHUD : MonoBehaviour
     private GameObject gameManager;
     public int scoreUpdatePeriod = 5; // update every x seconds
     public int scoreMult = 100; // score is updated by numUnpanicked * scoreMult
-    public TextMeshProUGUI scoreText; // what percent of sheep are panicked
+    public TextMeshProUGUI timeText; // what percent of sheep are panicked
     public SheepSpawner sheepSpawner;
 
     private float originalSize;
     private Color originalColor;
-    private int score = 0;
+    private int time = 0;
+    private GameObject audioManagerObj;
+    private AudioManager audioManager;
 
     void Start()
     {
         sheepSpawner = GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>();
-        scoreText = GetComponent<TextMeshProUGUI>();
+        timeText = GetComponent<TextMeshProUGUI>();
 
-        originalSize = scoreText.fontSize;
-        originalColor = scoreText.color;
+        originalSize = timeText.fontSize;
+        originalColor = timeText.color;
 
         gameManager = GameObject.Find("Game Manager");
+
+        audioManagerObj = GameObject.Find("Audio Manager");
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
 
         //StartCoroutine(CalculateScore());
     }
 
 
-    void Update(){
-        int prevscore = score;
-        score = (int) gameManager.GetComponent<GameManager>().timer;
-        scoreText.text = score.ToString();
+    void Update(){ // update time
+        int prevTime = time;
+        time = (int) gameManager.GetComponent<GameManager>().timer;
+        timeText.text = time.ToString();
 
-        if (prevscore != score && score <= 10){
-            StartCoroutine(IncreaseScoreAnim());
+        if (prevTime != time && time <= 10){
+            StartCoroutine(IncreaseTimeAnim());
+            audioManager.PlayVolume("tick", 1f);
         }
     }
 
@@ -45,25 +51,25 @@ public class ScoreHUD : MonoBehaviour
         {
             yield return new WaitForSeconds(scoreUpdatePeriod);
 
-            score += (int) Mathf.Pow((float) sheepSpawner.calmSheepList.Count, 2f) * scoreMult; // increment score
-            scoreText.text = score.ToString();
-            StartCoroutine(IncreaseScoreAnim());
+            time += (int) Mathf.Pow((float) sheepSpawner.calmSheepList.Count, 2f) * scoreMult; // increment score
+            timeText.text = time.ToString();
+            StartCoroutine(IncreaseTimeAnim());
         }
     }
 
-    private IEnumerator IncreaseScoreAnim() // Animate the damage update
+    private IEnumerator IncreaseTimeAnim() // Animate the damage update
     {
         float duration = 0.2f; // Animation total duration
         float step = 0.04f; // Step between animation frames
 
         for (int i = 0; i <= duration / step; i++)
         {
-            scoreText.fontSize = (int) (originalSize + i * 3);
-            scoreText.color = new Color(0.95f + Random.Range(-0.5f, 0.05f), 0f, 0f);
+            timeText.fontSize = (int) (originalSize + i * 3);
+            timeText.color = new Color(0.95f + Random.Range(-0.5f, 0.05f), 0f, 0f);
             yield return new WaitForSeconds(step);
         }
 
-        scoreText.fontSize = originalSize;
-        scoreText.color = originalColor;
+        timeText.fontSize = originalSize;
+        timeText.color = originalColor;
     }
 }
