@@ -31,13 +31,16 @@ public class LightningCloud : MonoBehaviour
         yield return new WaitForSeconds(0.13f); // Time for animation to play
         cloudCollider.enabled = true;
 
-        StartCoroutine(CloudDisappear());
-    }
-
-    public IEnumerator CloudDisappear()
-    {
         animator.SetBool("cloudDisappear", true);
         yield return new WaitForSeconds(0.1f); // how long to leave the lightning collider
+        cloudCollider.enabled = false;
+        // play animation to make cloud invasible
+        Destroy(gameObject, 5f);
+    }
+
+    public void DespawnCloud()
+    {
+        animator.SetBool("cloudDisappear", true);
         cloudCollider.enabled = false;
         // play animation to make cloud invasible
         Destroy(gameObject, 5f);
