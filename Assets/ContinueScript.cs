@@ -34,12 +34,20 @@ public class ContinueScript : MonoBehaviour
             GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().MakeSheepSmall();
             animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(20);
         }
-        if (GetComponent<TextMeshProUGUI>().text == "SMALLER WEATHER"){
-            GameObject.Find("Doggo").GetComponent<PlayerMovement>().reverse_bork = true;
+        if (GetComponent<TextMeshProUGUI>().text == "BIGGER BORK"){
+            GameObject.Find("Doggo").GetComponent<PlayerMovement>().bigger_bork = true;
+        }
+        if (GetComponent<TextMeshProUGUI>().text == "SHADOW DOG"){
+
+        }
+        if (GetComponent<TextMeshProUGUI>().text == "MEGA SHEEP"){
+            GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().MakeSheepSmall();
         }
 
         Time.timeScale = 1;
-        animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(10);
+        if (GetComponent<TextMeshProUGUI>().text != "MEGA SHEEP"){
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(10);
+        }
         animalSpawner.GetComponent<SheepSpawner>().MakeSheepCalm();
         animalSpawner.GetComponent<WolfSpawner>().KillAllWolves();
         lightningSpawner.GetComponent<LightningSpawner>().KillAllLightning();
