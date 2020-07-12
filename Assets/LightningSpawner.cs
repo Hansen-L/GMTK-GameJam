@@ -50,7 +50,7 @@ public class LightningSpawner : MonoBehaviour
 		GameObject[] lightningList = GameObject.FindGameObjectsWithTag("Lightning");
 		foreach (GameObject lightning in lightningList)
 		{
-			StartCoroutine(lightning.GetComponent<LightningCloud>().CloudDisappear()); // Make clouds fade out
+			lightning.GetComponent<LightningCloud>().DespawnCloud(); // Make clouds fade out
 		}
 	}
 }

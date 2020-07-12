@@ -81,7 +81,7 @@ public class WolfController : MonoBehaviour
 
 	public void Die(bool sceneEnd = false)
 	{ // add death effect/smoke here
-		if (!sceneEnd) { audioManager.PlayOneShot("wolfSmoke"); Debug.Log("smoke"); }
+		if (!sceneEnd) { audioManager.PlayOneShot("wolfSmoke");}
 		isDead = true; // stop movement
 		wolfRb.velocity = new Vector2(0, 0);
 		animator.SetBool("isDead", true);
