@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
 
-	float health;
+	public float health;
 	public SheepSpawner sheepSpawner;
 
     // Start is called before the first frame update

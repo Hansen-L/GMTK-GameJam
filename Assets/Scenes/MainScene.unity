@@ -1590,6 +1590,11 @@ PrefabInstance:
       propertyPath: stage
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1307093413015746238, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
+        type: 3}
+      propertyPath: gameOverPercent
+      value: 81
+      objectReference: {fileID: 0}
     - target: {fileID: 1307093413015746239, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1896,11 +1901,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6078754655243157384, guid: 89549e8f6c97a7a4d880a2d833a28dbb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6078754655243157388, guid: 89549e8f6c97a7a4d880a2d833a28dbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2011,6 +2011,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7294086929098274019, guid: 89549e8f6c97a7a4d880a2d833a28dbb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.42745098
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89549e8f6c97a7a4d880a2d833a28dbb, type: 3}
 --- !u!1001 &6272550734705088060
@@ -2093,11 +2098,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Start Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955711014781227, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6650955711014781238, guid: 78714932db2fe03478445f4a478e7f69,
         type: 3}
@@ -2203,64 +2203,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955711922620091, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_text
-      value: 'BAAAH!!!
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955711922620091, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712076613700, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_text
-      value: 'BAAAH!!!
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712076613700, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712076613700, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712076613700, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712153148219, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_text
-      value: 'BAAAH!!!
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712153148219, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712283759506, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_text
-      value: 'BAAAH!!!
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6650955712283759506, guid: 78714932db2fe03478445f4a478e7f69,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78714932db2fe03478445f4a478e7f69, type: 3}

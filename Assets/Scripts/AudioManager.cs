@@ -55,22 +55,31 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void PlayOneShot(string name, bool randPitch = false)
+    public void PlayOneShot(string name, bool randPitch = false, bool isDog = false)
     {
         Sound s = Array.Find(this.sounds, sound => sound.name == name);
 
         if (randPitch)
         {
-            s.source.pitch = s.pitch;
-            float f = UnityEngine.Random.Range(0, 0.5f);
-            int i = UnityEngine.Random.Range(0, 2);
-            if (i == 1)
+            if (!isDog)
             {
-                s.source.pitch += f;
+                s.source.pitch = s.pitch;
+                float f = UnityEngine.Random.Range(0, 0.5f);
+                int i = UnityEngine.Random.Range(0, 2);
+                if (i == 1)
+                {
+                    s.source.pitch += f;
+                }
+                else
+                {
+                    s.source.pitch -= f;
+                }
             }
-            else
+            else if (isDog) //bark pitch rando
             {
-                s.source.pitch -= f;
+                s.source.pitch = s.pitch;
+                float f = UnityEngine.Random.Range(-0.2f, 0.2f);
+                s.source.pitch += f;
             }
         }
 
