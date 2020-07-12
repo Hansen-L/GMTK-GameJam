@@ -1523,6 +1523,11 @@ PrefabInstance:
       propertyPath: stage
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1307093413015746238, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
+        type: 3}
+      propertyPath: gameOverPercent
+      value: 81
+      objectReference: {fileID: 0}
     - target: {fileID: 1307093413015746239, guid: c1a835772e6e4b74f89fb06e0ebf7b7b,
         type: 3}
       propertyPath: m_LocalPosition.x
