@@ -332,8 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7513795f3bfae3543ad474aa21f4b84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countText: {fileID: 0}
-  sheepSpawner: {fileID: 0}
+  countText: {fileID: 7202634104274896939}
 --- !u!1 &3548359878172790070
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,13 +796,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 6078754654425320307}
-    characterCount: 2
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

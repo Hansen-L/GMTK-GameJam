@@ -267,13 +267,16 @@ public class PlayerMovement : MonoBehaviour
 		Vector2 position =  new Vector2(this.transform.position.x,this.transform.position.y)  + mouseDir * 2;
 		GameObject barkInstance = Instantiate(barkCollider, position, Quaternion.identity);
 		if (more_bork == true){
-			barkInstance.GetComponent<BarkCollider>().velocity = 40;
+			barkInstance.GetComponent<BarkCollider>().velocity = 44;
 		}
 		if (reverse_bork == true){
 			barkInstance.GetComponent<BarkCollider>().velocity = -7;
 		}
+		if (reverse_bork == true && more_bork ==true){
+			barkInstance.GetComponent<BarkCollider>().velocity = -15;
+		}
 		if (bigger_bork == true){
-			barkInstance.GetComponent<BarkCollider>().transform.localScale = new Vector2(20, 20);
+			barkInstance.GetComponent<BarkCollider>().transform.localScale = new Vector2(15, 15);
 		}
 		barkInstance.GetComponent<BarkCollider>().getPos(this.transform.position);
 		Destroy(barkInstance, 0.1f);
