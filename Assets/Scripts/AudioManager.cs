@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using UnityEngine.Audio;
+using System.Collections.Generic;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -78,7 +80,7 @@ public class AudioManager : MonoBehaviour
             else if (isDog) //bark pitch rando
             {
                 s.source.pitch = s.pitch;
-                float f = UnityEngine.Random.Range(-0.2f, 0.2f);
+                float f = UnityEngine.Random.Range(-0.1f, 0.1f);
                 s.source.pitch += f;
             }
         }
@@ -87,4 +89,17 @@ public class AudioManager : MonoBehaviour
         if (s == null) { Debug.LogWarning("Sound: " + name + " not found!"); }
         else { s.source.PlayOneShot(s.source.clip); }
     }
+
+    public IEnumerator PlayOneShotDelayed(string name, float delay)
+    {
+        Sound s = Array.Find(this.sounds, sound => sound.name == name);
+
+        yield return new WaitForSeconds(delay);
+
+        // If we found the sound, play it
+        if (s == null) { Debug.LogWarning("Sound: " + name + " not found!"); }
+        else { s.source.Play(); }
+    }
+
+
 }

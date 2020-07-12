@@ -1313,29 +1313,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
         type: 3}
-      propertyPath: sounds.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
-        type: 3}
-      propertyPath: sounds.Array.data[10].name
-      value: tick
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
-        type: 3}
-      propertyPath: sounds.Array.data[10].clip
+      propertyPath: sounds.Array.data[11].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 127aefb1d79c720448afcc469336b571, type: 3}
-    - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
-        type: 3}
-      propertyPath: sounds.Array.data[10].volume
-      value: 0.789
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081911822070918084, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
-        type: 3}
-      propertyPath: sounds.Array.data[10].pitch
-      value: 1.49
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 79402216cbd87104cb1c2bb4526fe8d1, type: 3}
     - target: {fileID: 4081911822070918085, guid: 925b7d4d9b3d9e44782c0c16b5e44332,
         type: 3}
       propertyPath: m_Name
@@ -2193,6 +2173,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650955712507125325, guid: 78714932db2fe03478445f4a478e7f69,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.9299316
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650955712507125325, guid: 78714932db2fe03478445f4a478e7f69,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -175.83002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78714932db2fe03478445f4a478e7f69, type: 3}
