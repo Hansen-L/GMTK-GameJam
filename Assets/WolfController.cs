@@ -35,7 +35,7 @@ public class WolfController : MonoBehaviour
 			if (sheep.isPanicked == false)
 			{
 				sheep.PanicSheep();
-				this.Die(); // Wolf disappears after touching sheep
+				this.Disappear(); // Wolf disappears after touching sheep
 			}
 		}
 	}
@@ -79,6 +79,16 @@ public class WolfController : MonoBehaviour
 		isDead = true; // stop movement
 		wolfRb.velocity = new Vector2(0, 0);
 		animator.SetBool("isDead", true);
+		GetComponent<BoxCollider2D>().enabled = false; // disable collisions
+		Destroy(transform.GetChild(0).gameObject, 0.8f); // kill shadow
+		Destroy(gameObject, 3f);
+	}
+
+	public void Disappear()
+	{ // smoke effect
+		isDead = true; // stop movement
+		wolfRb.velocity = new Vector2(0, 0);
+		animator.SetBool("isDisappear", true);
 		GetComponent<BoxCollider2D>().enabled = false; // disable collisions
 		Destroy(transform.GetChild(0).gameObject, 0.8f); // kill shadow
 		Destroy(gameObject, 3f);

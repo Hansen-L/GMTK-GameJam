@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0326068e18cf74eb2a1cd194905c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepHitVelocity: 80
+  sheepHitVelocity: 40
   timeBeforeStrike: 3
   lightningEffectPrefab: {fileID: 7400957906321664592, guid: bb60b80ec66422948b57edcced0201aa,
     type: 3}
