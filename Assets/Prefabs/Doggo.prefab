@@ -158,6 +158,8 @@ MonoBehaviour:
     type: 3}
   dashEndEffect: {fileID: 6594737175139339036, guid: 878d6471e503a6643a2eef481daa0aee,
     type: 3}
+  barkEffect: {fileID: 4042404542434258202, guid: 8021df1414633714cb24591341ab7981,
+    type: 3}
 --- !u!95 &2084045640
 Animator:
   serializedVersion: 3
