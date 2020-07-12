@@ -47,12 +47,27 @@ public class AudioManager : MonoBehaviour
         else { s.source.Stop(); }
     }
 
-    public void PlayOneShot(string name)
+    public void PlayOneShot(string name, bool randPitch = false)
     {
         Sound s = Array.Find(this.sounds, sound => sound.name == name);
 
+        if (randPitch)
+        {
+            s.source.pitch = s.pitch;
+            float f = UnityEngine.Random.Range(0, 0.5f);
+            int i = UnityEngine.Random.Range(0, 2);
+            if (i == 1)
+            {
+                s.source.pitch += f;
+            }
+            else
+            {
+                s.source.pitch -= f;
+            }
+        }
+
         // If we found the sound, play it
         if (s == null) { Debug.LogWarning("Sound: " + name + " not found!"); }
-        else { s.source.PlayOneShot(s.clip); }
+        else { s.source.PlayOneShot(s.source.clip); }
     }
 }

@@ -152,7 +152,7 @@ public class SheepController : MonoBehaviour
     {
         if (Random.value < beehChance)
         {
-            audioManager.PlayOneShot("sheep" + (Random.Range(0, beehNb) + 1));
+            audioManager.PlayOneShot("sheep" + (Random.Range(0, beehNb) + 1), true);
         }
     }
 
@@ -161,6 +161,10 @@ public class SheepController : MonoBehaviour
         // Set animations based on movement vector, idle, color
         if (isPanicked)
         {
+            if (!animator.GetBool("isPanicked"))
+            {
+                audioManager.PlayOneShot("panic", true);
+            }
             animator.SetBool("isPanicked", true);
         }
         else
