@@ -233,8 +233,9 @@ public class PlayerMovement : MonoBehaviour
 			barkEffectInstance.transform.parent = gameObject.transform;
 			barkEffectInstance.transform.rotation = Quaternion.Euler(0f, 0f, -angleToCamera + 180f);
 			Destroy(barkEffectInstance, 2f);
-		}
-	}
+        }
+        audioManager.PlayOneShot("bark");
+    }
 
 	void Stun_start()
 	{
