@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Update() 
     {
-        if (Input.GetKeyDown("space") && gaming == false) {
+        if (Input.GetMouseButtonDown(0) && gaming == false) {
             startGame();
         }
         if (gaming == true){

@@ -80,7 +80,7 @@ public class WolfController : MonoBehaviour
 		wolfRb.velocity = new Vector2(0, 0);
 		animator.SetBool("isDead", true);
 		GetComponent<BoxCollider2D>().enabled = false; // disable collisions
-		Destroy(transform.GetChild(0).gameObject, 0.8f); // kill shadow
+		//Destroy(transform.GetChild(0).gameObject, 0.8f); // kill shadow
 		Destroy(gameObject, 3f);
 	}
 

@@ -10,8 +10,8 @@ public class FinalScoreHUD : MonoBehaviour
     void Start()
     {
         finalScoreText = GetComponent<TextMeshProUGUI>();
-        scoreText = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
-        string finalScore = scoreText.text;
-        finalScoreText.text = finalScore; // final score is set to current score
+        GameObject gm = GameObject.Find("Game Manager");
+        string finalScore = gm.GetComponent<GameManager>().stage.ToString();
+        finalScoreText.text = finalScore + " out of 5"; // final score is set to current score
     }
 }

@@ -30,8 +30,13 @@ public class ScoreHUD : MonoBehaviour
 
 
     void Update(){
+        int prevscore = score;
         score = (int) gameManager.GetComponent<GameManager>().timer;
         scoreText.text = score.ToString();
+
+        if (prevscore != score && score <= 10){
+            StartCoroutine(IncreaseScoreAnim());
+        }
     }
 
     private IEnumerator CalculateScore()
@@ -53,8 +58,8 @@ public class ScoreHUD : MonoBehaviour
 
         for (int i = 0; i <= duration / step; i++)
         {
-            scoreText.fontSize = (int) (originalSize + i * 2);
-            //scoreText.color = new Color(0.95f + Random.Range(-0.5f, 0.05f), 0f, 0f);
+            scoreText.fontSize = (int) (originalSize + i * 3);
+            scoreText.color = new Color(0.95f + Random.Range(-0.5f, 0.05f), 0f, 0f);
             yield return new WaitForSeconds(step);
         }
 
