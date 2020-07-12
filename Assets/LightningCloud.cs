@@ -30,6 +30,12 @@ public class LightningCloud : MonoBehaviour
         GameObject lightningEffectInstance = Instantiate(lightningEffectPrefab, effectPosition, Quaternion.identity);
         yield return new WaitForSeconds(0.13f); // Time for animation to play
         cloudCollider.enabled = true;
+
+        StartCoroutine(CloudDisappear());
+    }
+
+    public IEnumerator CloudDisappear()
+    {
         animator.SetBool("cloudDisappear", true);
         yield return new WaitForSeconds(0.1f); // how long to leave the lightning collider
         cloudCollider.enabled = false;
@@ -47,6 +53,11 @@ public class LightningCloud : MonoBehaviour
             {
                 sheep.PanicSheep();
                 sheep.ChangeVelocity(transform.position, sheepHitVelocity);
+            }
+            else if (collision.gameObject.CompareTag("Wolf"))
+            {
+                WolfController wolf = collision.gameObject.GetComponent<WolfController>();
+                wolf.Die();
             }
         }
     }

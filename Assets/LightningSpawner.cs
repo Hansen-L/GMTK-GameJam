@@ -33,4 +33,13 @@ public class LightningSpawner : MonoBehaviour
 			Destroy(lightningInstance, 10f);
 		}
 	}
+
+	public void KillAllLightning() // Can be called from other functions
+	{
+		GameObject[] lightningList = GameObject.FindGameObjectsWithTag("Lightning");
+		foreach (GameObject lightning in lightningList)
+		{
+			StartCoroutine(lightning.GetComponent<LightningCloud>().CloudDisappear()); // Make clouds fade out
+		}
+	}
 }
