@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class GameManager : MonoBehaviour 
 {
@@ -32,8 +33,15 @@ public class GameManager : MonoBehaviour
 
         if (sheepPrecentHUD.percentPanicked > gameOverPercent && !gameEnded)
         {
+            StartCoroutine(FreezeTimeIn(0.01f));
             Instantiate(gameOverPrefab, new Vector3(0, 0), Quaternion.identity);
             gameEnded = true;
         }
+    }
+
+    public IEnumerator FreezeTimeIn(float seconds) // freeze after some seconds
+    {
+        yield return new WaitForSeconds(seconds);
+        Time.timeScale = 0;
     }
 }

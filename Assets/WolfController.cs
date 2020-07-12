@@ -7,8 +7,8 @@ public class WolfController : MonoBehaviour
 	
 	Vector2 direction;
 	public float velocity;
-	public Animator animator;
 
+	private Animator animator;
 	private Rigidbody2D wolfRb;
 	private SpriteRenderer wolfRenderer;
 	private SheepSpawner sheepSpawner;
@@ -80,6 +80,7 @@ public class WolfController : MonoBehaviour
 		wolfRb.velocity = new Vector2(0, 0);
 		animator.SetBool("isDead", true);
 		GetComponent<BoxCollider2D>().enabled = false; // disable collisions
+		Destroy(transform.GetChild(0).gameObject, 0.8f); // kill shadow
 		Destroy(gameObject, 3f);
 	}
 
