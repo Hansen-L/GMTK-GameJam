@@ -270,7 +270,7 @@ public class PlayerMovement : MonoBehaviour
 			barkInstance.GetComponent<BarkCollider>().velocity = 40;
 		}
 		if (reverse_bork == true){
-			barkInstance.GetComponent<BarkCollider>().velocity = -20;
+			barkInstance.GetComponent<BarkCollider>().velocity = -7;
 		}
 		if (bigger_bork == true){
 			barkInstance.GetComponent<BarkCollider>().transform.localScale = new Vector2(20, 20);

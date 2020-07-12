@@ -33,7 +33,7 @@ public class ContinueScript : MonoBehaviour
         if (GetComponent<TextMeshProUGUI>().text == "SMALLER SHEEPS"){
             GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().smaller = true;
             GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().MakeSheepSmall();
-            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(20);
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(90);
         }
         if (GetComponent<TextMeshProUGUI>().text == "BIGGER BORK"){
             GameObject.Find("Doggo").GetComponent<PlayerMovement>().bigger_bork = true;
@@ -48,10 +48,12 @@ public class ContinueScript : MonoBehaviour
         }
 
         Time.timeScale = 1;
-        if (GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().bigger == false){
+        if (GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().bigger == false && GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().smaller == false){
             animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(10);
-        } else {
+        } else if (GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>().bigger == true){
             animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(1);
+        } else {
+            animalSpawner.GetComponent<SheepSpawner>().SpawnASheep(20);
         }
         animalSpawner.GetComponent<SheepSpawner>().MakeSheepCalm();
         animalSpawner.GetComponent<WolfSpawner>().KillAllWolves();
