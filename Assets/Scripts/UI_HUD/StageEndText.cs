@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 
-public class StageScreenScript : MonoBehaviour
+public class StageEndText : MonoBehaviour
 {
     private GameObject gameManager;
     public TextMeshProUGUI stageCompleteText;

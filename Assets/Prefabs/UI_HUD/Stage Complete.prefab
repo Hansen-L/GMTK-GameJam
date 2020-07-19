@@ -111,7 +111,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 8219925913759740593}
   - component: {fileID: 8219925913759740598}
   - component: {fileID: 8219925913759740599}
-  - component: {fileID: 3856934427220778996}
+  - component: {fileID: 4514916098868155195}
   m_Layer: 5
   m_Name: Stage Complete
   m_TagString: Untagged
@@ -948,7 +948,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3856934427220778996
+--- !u!114 &4514916098868155195
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -960,4 +960,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2572df3135a8247b702d1c76134318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageCompleteText: {fileID: 4583615883991734486}
+  stageCompleteText: {fileID: 0}
