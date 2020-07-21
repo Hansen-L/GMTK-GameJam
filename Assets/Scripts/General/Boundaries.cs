@@ -8,23 +8,31 @@ public class Boundaries : MonoBehaviour
 	public float playerBoundary_x = 14.83f;
 	public float playerBoundary_y = 9.04f;
 
-    private float boundary_x;
-    private float boundary_y;
+	public float sheepBoundary_x = 15.4f;
+	public float sheepBoundary_top_y = 9.4f; // Boundary on the top of screen
+	public float sheepBoundary_bot_y = 9.7f; // Boundary on the bottom
 
-    //private void Start() // THIS DOESN'T WORK LOL HARD CODED
-    //{
-    //    GameObject boundaryObj = GameObject.Find("Boundaries");
-    //    Boundaries boundary = boundaryObj.GetComponent<Boundaries>();
 
-    //    float x = boundary.playerBoundary_x;
-    //    float y = boundary.playerBoundary_y;
+	void Start()
+	{
+		SetEdgeCollider();
+	}
 
-    //    EdgeCollider2D collider = this.GetComponent<EdgeCollider2D>();
+	void SetEdgeCollider()
+	{
+		float x = sheepBoundary_x;
+		float top_y = sheepBoundary_top_y;
+		float bot_y = sheepBoundary_bot_y;
 
-    //    collider.points[0] = new Vector2(x, y);
-    //    collider.points[1] = new Vector2(-x, y);
-    //    collider.points[2] = new Vector2(-x, -y);
-    //    collider.points[3] = new Vector2(-x, y);
-    //    collider.points[4] = new Vector2(x, y);
-    //}
+		// Setting the edge collider points
+		EdgeCollider2D collider = this.GetComponent<EdgeCollider2D>();
+		Vector2[] colliderpointsTemp = collider.points;
+		colliderpointsTemp[0] = new Vector2(x, top_y);
+		colliderpointsTemp[1] = new Vector2(-x, top_y);
+		colliderpointsTemp[2] = new Vector2(-x, -bot_y);
+		colliderpointsTemp[3] = new Vector2(x, -bot_y);
+		colliderpointsTemp[4] = new Vector2(x, top_y);
+
+		collider.points = colliderpointsTemp;
+	}
 }
