@@ -5,7 +5,6 @@ using System.Collections;
 
 public class StageEndText : MonoBehaviour
 {
-    private GameObject gameManager;
     public TextMeshProUGUI stageCompleteText;
     private GameObject audioManagerObj;
     private AudioManager audioManager;
@@ -16,8 +15,7 @@ public class StageEndText : MonoBehaviour
         audioManagerObj = GameObject.Find("Audio Manager");
         audioManager = audioManagerObj.GetComponent<AudioManager>();
 
-        gameManager = GameObject.Find("Game Manager");
-        stageCompleteText.text = "STAGE " + gameManager.GetComponent<GameManager>().stage.ToString() + " COMPLETE";
+        stageCompleteText.text = "STAGE " + GameManager.Instance.stage.ToString() + " COMPLETE";
 
         audioManager.PlayOneShot("tada");
     }

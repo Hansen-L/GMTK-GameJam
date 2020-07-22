@@ -10,8 +10,7 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         finalScoreText = GetComponent<TextMeshProUGUI>();
-        GameObject gm = GameObject.Find("Game Manager");
-        string finalScore = gm.GetComponent<GameManager>().stage.ToString();
+        string finalScore = GameManager.Instance.stage.ToString();
         finalScoreText.text = finalScore + " out of 5"; // final score is set to current score
     }
 }

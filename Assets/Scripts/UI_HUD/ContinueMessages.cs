@@ -9,7 +9,7 @@ public class ContinueMessagesConti : MonoBehaviour
     void Start() 
     {
         continueText = this.GetComponent<TextMeshProUGUI>();
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameManager.Instance;
 
 
         if (gameManager.stage == 5)

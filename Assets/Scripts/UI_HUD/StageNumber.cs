@@ -7,8 +7,7 @@ public class StageNumber : MonoBehaviour
 
     void Update() 
     {
-        GameObject gm = GameObject.Find("Game Manager");
-        int stage = gm.GetComponent<GameManager>().stage + 1;
+        int stage = GameManager.Instance.stage + 1;
         countText.text = "Stage " + stage.ToString();
     }
 }

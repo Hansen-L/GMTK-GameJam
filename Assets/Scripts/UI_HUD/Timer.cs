@@ -4,8 +4,6 @@ using System.Collections;
 
 public class Timer : MonoBehaviour
 {
-
-    private GameObject gameManager;
     public int scoreUpdatePeriod = 5; // update every x seconds
     public int scoreMult = 100; // score is updated by numUnpanicked * scoreMult
     public TextMeshProUGUI timeText; // what percent of sheep are panicked
@@ -25,8 +23,6 @@ public class Timer : MonoBehaviour
         originalSize = timeText.fontSize;
         originalColor = timeText.color;
 
-        gameManager = GameObject.Find("Game Manager");
-
         audioManagerObj = GameObject.Find("Audio Manager");
         audioManager = audioManagerObj.GetComponent<AudioManager>();
 
@@ -36,7 +32,7 @@ public class Timer : MonoBehaviour
 
     void Update(){ // update time
         int prevTime = time;
-        time = (int) gameManager.GetComponent<GameManager>().timer;
+        time = (int) GameManager.Instance.timer;
         timeText.text = time.ToString();
 
         if (prevTime != time && time <= 10){ //time from 10 to 0

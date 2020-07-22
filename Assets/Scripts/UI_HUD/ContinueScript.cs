@@ -15,7 +15,7 @@ public class ContinueScript : MonoBehaviour
 	{
         animalSpawner = GameObject.Find("Animal Spawner");
         lightningSpawner = GameObject.Find("Lightning Spawner");
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameManager.Instance;
 	}
 
 	public void Continue()

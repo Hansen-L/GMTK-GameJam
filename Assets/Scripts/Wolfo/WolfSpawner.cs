@@ -12,6 +12,8 @@ public class WolfSpawner : MonoBehaviour
 	private float boundary_x;
 	private float boundary_y;
 
+	private GameManager gameManager;
+
 	private void Awake()
 	{
 		//wolfList = GameObject.FindGameObjectsWithTag("Wolf").ToList();
@@ -30,9 +32,8 @@ public class WolfSpawner : MonoBehaviour
 
 	void Update()
 	{
-		GameObject gameManager;
-		gameManager = GameObject.Find("Game Manager");
-		spawnPeriod = gameManager.GetComponent<GameManager>().timer/(2*gameManager.GetComponent<GameManager>().stage+6);
+		gameManager = GameManager.Instance;
+		spawnPeriod = gameManager.timer/(2*gameManager.stage+6);
 		
 	}
 
@@ -41,10 +42,8 @@ public class WolfSpawner : MonoBehaviour
 		while (true)
 		{
 			yield return new WaitForSeconds(spawnPeriod);
-			GameObject gameManager;
-			gameManager = GameObject.Find("Game Manager");
 
-			if (gameManager.GetComponent<GameManager>().gaming == true){
+			if (gameManager.gaming == true){
 				if (Random.Range(0f, 1f) > 0.5) // Half the time, spawn on top/bot
 				{
 					int signFlip = Random.Range(0, 2) * 2 - 1; // either -1 or 1

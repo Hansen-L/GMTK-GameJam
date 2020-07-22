@@ -17,7 +17,15 @@ public class GameManager : MonoBehaviour
     public float timer;
     private bool gameEnded = false;
 
-    void Start() 
+
+    public static GameManager Instance { get; private set; } // Static variable that holds the instance of the GameManager
+
+	private void Awake()
+	{
+        Instance = this;
+	}
+
+	void Start() 
     {
         sheepSpawner = GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>();
         timer = 30;

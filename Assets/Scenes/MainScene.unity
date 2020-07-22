@@ -1972,6 +1972,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6272550734886752161, guid: c578ec1ad75bf354fa6c7d1b23f9bf73,
+        type: 3}
+      propertyPath: m_Points.Array.data[0].y
+      value: -9.04
+      objectReference: {fileID: 0}
     - target: {fileID: 6272550734886752162, guid: c578ec1ad75bf354fa6c7d1b23f9bf73,
         type: 3}
       propertyPath: m_LocalPosition.x

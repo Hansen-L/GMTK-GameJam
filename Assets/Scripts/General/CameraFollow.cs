@@ -21,9 +21,7 @@ public class CameraFollow : MonoBehaviour {
 
 	void Update () {
 
-        GameObject gameManager = GameObject.Find("Game Manager");
-        
-        if (gameManager.GetComponent<GameManager>().gaming == true){
+        if (GameManager.Instance.gaming == true){
 
 
             float interpolation = speed * Time.deltaTime;
