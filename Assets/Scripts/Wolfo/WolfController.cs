@@ -14,8 +14,6 @@ public class WolfController : MonoBehaviour
 	private SheepSpawner sheepSpawner;
 	private int baseLayer;
 	private bool isDead;
-	private GameObject audioManagerObj;
-	private AudioManager audioManager;
 
 	void Start() 
 	{
@@ -24,9 +22,6 @@ public class WolfController : MonoBehaviour
 		baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
 
 		animator = this.GetComponent<Animator>();
-
-		audioManagerObj = GameObject.Find("Audio Manager");
-		audioManager = audioManagerObj.GetComponent<AudioManager>();
 
 		sheepSpawner = GameObject.Find("Animal Spawner").GetComponent<SheepSpawner>();
 	}
@@ -81,7 +76,7 @@ public class WolfController : MonoBehaviour
 
 	public void Die(bool sceneEnd = false)
 	{ // add death effect/smoke here
-		if (!sceneEnd) { audioManager.PlayOneShot("wolfSmoke");}
+		if (!sceneEnd) { AudioManager.Instance.PlayOneShot("wolfSmoke");}
 		isDead = true; // stop movement
 		wolfRb.velocity = new Vector2(0, 0);
 		animator.SetBool("isDead", true);
@@ -92,7 +87,7 @@ public class WolfController : MonoBehaviour
 
 	public void Disappear()
 	{ // smoke effect
-		audioManager.PlayOneShot("wolfSmoke");
+		AudioManager.Instance.PlayOneShot("wolfSmoke");
 		isDead = true; // stop movement
 		wolfRb.velocity = new Vector2(0, 0);
 		animator.SetBool("isDisappear", true);

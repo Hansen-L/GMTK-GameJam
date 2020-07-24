@@ -9,11 +9,11 @@ public class AudioManager : MonoBehaviour
 {
 	public Sound[] sounds;
 
-	public static AudioManager instance;
+	public static AudioManager Instance;
 
 	void Awake()
 	{
-		if (instance == null) { instance = this; }
+		if (Instance == null) { Instance = this; }
 		else { Destroy(gameObject); }
 
 		DontDestroyOnLoad(gameObject);

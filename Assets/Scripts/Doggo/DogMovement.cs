@@ -18,7 +18,6 @@ public class DogMovement : MonoBehaviour
 	bool dashing;
 	bool stunned;
 	bool barking;
-	bool dash_attack = false;
 	public bool dash_jump;
 	public bool more_bork;
 	public bool reverse_bork;
@@ -49,7 +48,6 @@ public class DogMovement : MonoBehaviour
 	private SpriteRenderer dogRenderer;
 
 	private GameObject audioManagerObj;
-	private AudioManager audioManager;
 
 
 	void Start()
@@ -66,9 +64,6 @@ public class DogMovement : MonoBehaviour
 		animator = this.GetComponent<Animator>();
 		dogRenderer = this.GetComponent<SpriteRenderer>();
 		baseLayer = this.GetComponent<SpriteRenderer>().sortingOrder;
-
-		audioManagerObj = GameObject.Find("Audio Manager");
-		audioManager = audioManagerObj.GetComponent<AudioManager>();
 
 		dash_jump = false;
 	}
@@ -166,9 +161,9 @@ public class DogMovement : MonoBehaviour
 
 		} else if (dashing == true) {
 
-			if (Input.GetMouseButtonDown(0)){
-				dash_attack = true;
-			}
+			//if (Input.GetMouseButtonDown(0)){
+			//	dash_attack = true;
+			//}
 
 			dash_timer += Time.fixedDeltaTime;
 			body.velocity = dash_speed * dash_direction;
@@ -182,7 +177,6 @@ public class DogMovement : MonoBehaviour
 			}
 
 		} else {
-			dash_attack = false;
 			if (horizontal * h_velocity <= 0) {
 				h_velocity *= friction;
 			}
@@ -207,14 +201,14 @@ public class DogMovement : MonoBehaviour
         {
             if (!animator.GetBool("isMoving"))
             {
-                audioManager.Play("run");
+                AudioManager.Instance.Play("run");
             }
             animator.SetBool("isMoving", true);
         }
 		else {
             if (animator.GetBool("isMoving"))
             {
-                audioManager.Stop("run");
+                AudioManager.Instance.Stop("run");
             }
             animator.SetBool("isMoving", false);
         }
@@ -239,7 +233,7 @@ public class DogMovement : MonoBehaviour
 			dash_direction = new Vector2(h_velocity, v_velocity);
 		}
 		dash_direction.Normalize();
-        audioManager.PlayOneShot("dash");
+		AudioManager.Instance.PlayOneShot("dash");
     }
 
 	void Dash_end()
@@ -303,7 +297,7 @@ public class DogMovement : MonoBehaviour
 			barkEffectInstance.transform.rotation = Quaternion.Euler(0f, 0f, -angleToCamera + 180f);
 			Destroy(barkEffectInstance, 2f);
         }
-        audioManager.PlayOneShot("bark", true, true);
+		AudioManager.Instance.PlayOneShot("bark", true, true);
     }
 
 	void Stun_start()
