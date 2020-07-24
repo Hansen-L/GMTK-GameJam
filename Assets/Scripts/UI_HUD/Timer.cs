@@ -12,8 +12,6 @@ public class Timer : MonoBehaviour
     private float originalSize;
     private Color originalColor;
     private int time = 0;
-    private GameObject audioManagerObj;
-    private AudioManager audioManager;
 
     void Start()
     {
@@ -22,9 +20,6 @@ public class Timer : MonoBehaviour
 
         originalSize = timeText.fontSize;
         originalColor = timeText.color;
-
-        audioManagerObj = GameObject.Find("Audio Manager");
-        audioManager = audioManagerObj.GetComponent<AudioManager>();
 
         //StartCoroutine(CalculateScore());
     }
@@ -37,7 +32,7 @@ public class Timer : MonoBehaviour
 
         if (prevTime != time && time <= 10){ //time from 10 to 0
             StartCoroutine(IncreaseTimeAnim());
-            audioManager.PlayVolume("tick", 1f - (float)time/20f); //louder over time
+            AudioManager.Instance.PlayVolume("tick", 1f - (float)time/20f); //louder over time
         }
     }
 
