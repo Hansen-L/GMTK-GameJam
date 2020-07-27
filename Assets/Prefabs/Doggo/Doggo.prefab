@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 24546750019598944}
   - component: {fileID: 24546750019598945}
   - component: {fileID: 24546750019598946}
-  - component: {fileID: 24546750019598947}
   - component: {fileID: 2084045640}
+  - component: {fileID: 1112453593014836222}
   m_Layer: 10
   m_Name: Doggo
   m_TagString: Untagged
@@ -135,39 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &24546750019598947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24546750019598956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ed14937e445e64f90538a5a38e44af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dash_jump: 0
-  more_bork: 0
-  reverse_bork: 0
-  bigger_bork: 0
-  acceleration: 1
-  max_speed: 7
-  friction: 0.4
-  dash_speed: 25
-  dash_time: 0.15
-  dash_end_stun: 0.2
-  screenShake: {fileID: 0}
-  dashJumpCollider: {fileID: 2402875183927296318, guid: 720a85d304d28f44dbc58c8c34d1ca49,
-    type: 3}
-  barkCollider: {fileID: 2402875183927296318, guid: eb63dcc50ff6e3f428887720aaa60d4e,
-    type: 3}
-  dashEndEffect: {fileID: 6594737175139339036, guid: 878d6471e503a6643a2eef481daa0aee,
-    type: 3}
-  barkEffect: {fileID: 4042404542434258202, guid: 8021df1414633714cb24591341ab7981,
-    type: 3}
-  isShadow: 0
-  shadowDelay: 2
 --- !u!95 &2084045640
 Animator:
   serializedVersion: 3
@@ -187,6 +154,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1112453593014836222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24546750019598956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788a8ceecbde3ea4ab42c6c36a12e3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xInput: 0
+  yInput: 0
 --- !u!1 &4992510733850608458
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,31 +51,31 @@ public class GameManager : MonoBehaviour
         if (gaming == true && gameEnded == false){
 
          	timer -= Time.deltaTime;   
-        	if (timer < 0){
-                stage +=1;
-                timer = 30;
-                if (stage == 1){
-            		GameObject stageComplete = Instantiate(stageCompletePrefab, new Vector3(0, 0), Quaternion.identity);
-                    Time.timeScale = 0;
-                }
-                if (stage == 2){
-                    GameObject stageComplete = Instantiate(stage2CompletePrefab, new Vector3(0, 0), Quaternion.identity);
-                    Time.timeScale = 0;
-                }
-                if (stage == 3){
-                    GameObject stageComplete = Instantiate(stage3CompletePrefab, new Vector3(0, 0), Quaternion.identity);
-                    Time.timeScale = 0;
-                }
-                if (stage == 4){
-                    GameObject stageComplete = Instantiate(stage4CompletePrefab, new Vector3(0, 0), Quaternion.identity);
-                    Time.timeScale = 0;
-                }
-                if (stage >= 5){
-                    GameObject stageComplete = Instantiate(endgamePrefab, new Vector3(0, 0), Quaternion.identity);
-                    Time.timeScale = 0;
-                }
+        	//if (timer < 0){
+         //       stage +=1;
+         //       timer = 30;
+         //       if (stage == 1){
+         //   		GameObject stageComplete = Instantiate(stageCompletePrefab, new Vector3(0, 0), Quaternion.identity);
+         //           Time.timeScale = 0;
+         //       }
+         //       if (stage == 2){
+         //           GameObject stageComplete = Instantiate(stage2CompletePrefab, new Vector3(0, 0), Quaternion.identity);
+         //           Time.timeScale = 0;
+         //       }
+         //       if (stage == 3){
+         //           GameObject stageComplete = Instantiate(stage3CompletePrefab, new Vector3(0, 0), Quaternion.identity);
+         //           Time.timeScale = 0;
+         //       }
+         //       if (stage == 4){
+         //           GameObject stageComplete = Instantiate(stage4CompletePrefab, new Vector3(0, 0), Quaternion.identity);
+         //           Time.timeScale = 0;
+         //       }
+         //       if (stage >= 5){
+         //           GameObject stageComplete = Instantiate(endgamePrefab, new Vector3(0, 0), Quaternion.identity);
+         //           Time.timeScale = 0;
+         //       }
         		
-        	}
+        	//}
 
 
             if (percentPanicked > gameOverPercent && !gameEnded)
