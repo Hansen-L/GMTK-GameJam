@@ -9,7 +9,7 @@ public class Dog : MonoBehaviour
     public const float maxSpeed = 7f;
     public const float dashSpeed = 25f;
     public const float dashTime = 0.15f;
-    public const float dashEndStun = 0.2f;
+    public const float stunTime = 0.2f;
     public const float friction = 0.4f;
     #endregion
 
@@ -19,7 +19,7 @@ public class Dog : MonoBehaviour
     public float prevyInput = 1f;
 
 	public bool isDashing = false;
-	public bool stunned = false;
+	public bool isStunned = false;
 
     private StateMachine _stateMachine;
 	private Animator _animator;
@@ -47,12 +47,15 @@ public class Dog : MonoBehaviour
 		var running = new Running(this, _animator);
 		var idle = new Idle(this, _animator);
 		var dashing = new Dashing(this, _animator, _rb);
+		var stunned = new Stunned(this, _rb);
 
 		// Assigning transitions
-		_stateMachine.AddAnyTransition(dashing, IsDashing());
+		_stateMachine.AddAnyTransition(stunned, IsStunned());
 		At(running, idle, IsIdle());
 		At(idle, running, IsMoving());
-		At(dashing, idle, IsNotDashing());
+		At(idle, dashing, IsDashing());
+		At(running, dashing, IsDashing());
+		At(stunned, idle, IsNotStunned());
 
 		// Starting state
 		_stateMachine.SetState(running);
@@ -65,6 +68,8 @@ public class Dog : MonoBehaviour
 		Func<bool> IsIdle() => () => (xInput == 0 && yInput == 0);
 		Func<bool> IsDashing() => () => (isDashing);
 		Func<bool> IsNotDashing() => () => (!isDashing);
+		Func<bool> IsStunned() => () => (isStunned);
+		Func<bool> IsNotStunned() => () => (!isStunned);
 		#endregion
 
 		#region Instantiating instance variables

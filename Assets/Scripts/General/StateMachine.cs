@@ -31,8 +31,11 @@ public class StateMachine
     public void Tick() // Calls the tick method of the current state. This is called in the dog update loop
     {
         var transition = GetTransition();
-        if (transition != null)
-            SetState(transition.To);
+		if (transition != null)
+		{
+			SetState(transition.To);
+			Debug.Log(transition.To);
+		}
 
         _currentState?.Tick();
     }
