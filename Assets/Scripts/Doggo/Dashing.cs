@@ -38,6 +38,7 @@ public class Dashing : IState
 
 		if (dashTimer >= Dog.dashTime)
 		{
+			Debug.Log(dashTimer);
 			_dog.isDashing = false;
 			_dog.isStunned = true; // Stun at the end of dash
 		}

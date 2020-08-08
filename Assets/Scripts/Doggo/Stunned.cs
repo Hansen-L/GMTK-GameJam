@@ -17,6 +17,7 @@ public class Stunned : IState
 
 	public void OnEnter()
 	{
+		stunTimer = 0f;
 	}
 
 	public void Tick()

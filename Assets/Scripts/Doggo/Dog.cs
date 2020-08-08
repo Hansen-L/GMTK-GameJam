@@ -8,7 +8,7 @@ public class Dog : MonoBehaviour
     public const float acceleration = 1f;
     public const float maxSpeed = 7f;
     public const float dashSpeed = 25f;
-    public const float dashTime = 0.15f;
+    public const float dashTime = 0.35f;
     public const float stunTime = 0.2f;
     public const float friction = 0.4f;
     #endregion
