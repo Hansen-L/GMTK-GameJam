@@ -1492,6 +1492,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doggo
       objectReference: {fileID: 0}
+    - target: {fileID: 1112453593014836222, guid: 20ba07ad2d9d3904595964d5cb828676,
+        type: 3}
+      propertyPath: barkCollider
+      value: 
+      objectReference: {fileID: 2402875183927296318, guid: eb63dcc50ff6e3f428887720aaa60d4e,
+        type: 3}
+    - target: {fileID: 1112453593014836222, guid: 20ba07ad2d9d3904595964d5cb828676,
+        type: 3}
+      propertyPath: barkEffect
+      value: 
+      objectReference: {fileID: 4042404542434258202, guid: 8021df1414633714cb24591341ab7981,
+        type: 3}
     - target: {fileID: 4633320946104178171, guid: 20ba07ad2d9d3904595964d5cb828676,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar

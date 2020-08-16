@@ -23,7 +23,7 @@ public class Dashing : IState
 
 		dashTimer = 0f;
 
-		if (_rb.velocity.magnitude > 0.001) { dashDirection = _rb.velocity; }
+		if ( _dog.xInput != 0 || _dog.yInput != 0) { dashDirection = new Vector2(_dog.xInput, _dog.yInput); }
 		else { dashDirection = new Vector2(_dog.prevxInput, _dog.prevyInput); } // If we aren't holding a direction, dash in last direction
 
 		dashDirection.Normalize();
